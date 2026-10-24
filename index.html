@@ -1,1195 +1,674 @@
-<!doctype html>
+<!DOCTYPE html>
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
-      name="viewport"
-    />
-    <meta content="mobile_tab" name="shell-type" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      @layer base {
-        html,
-        body {
-          width: 100vw;
-          margin: 0;
-          padding: 0;
-        }
-        body {
-          overscroll-behavior: none;
-        }
-        .pb-safe {
-          padding-bottom: env(safe-area-inset-bottom, 0px);
-        }
-        .pt-safe {
-          padding-top: env(safe-area-inset-top, 0px);
-        }
-        main > :first-child {
-          margin-top: 0 !important;
-        }
-        main > :last-child {
-          margin-bottom: 0 !important;
-        }
-      }
-      ::-webkit-scrollbar {
-        display: none;
-      }
-    </style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              'surface-container-low': '#f5f3f3',
-              'on-error': '#ffffff',
-              'inverse-primary': '#e5c457',
-              'on-primary-container': '#fffbff',
-              'primary-container': '#8c7201',
-              'on-surface': '#1b1c1c',
-              'on-background': '#1b1c1c',
-              'surface-tint': '#725c00',
-              outline: '#717785',
-              background: '#fbf9f8',
-              'inverse-surface': '#303031',
-              'surface-dim': '#dbdad9',
-              'surface-container-lowest': '#ffffff',
-              tertiary: '#5d5f31',
-              primary: '#6f5a00',
-              'secondary-fixed-dim': '#bad062',
-              'primary-fixed-dim': '#e5c457',
-              'on-secondary': '#ffffff',
-              'on-tertiary-fixed-variant': '#47491e',
-              'on-surface-variant': '#414753',
-              'on-primary-fixed-variant': '#564500',
-              'tertiary-fixed': '#e5e6ac',
-              secondary: '#546500',
-              'primary-fixed': '#ffe082',
-              'tertiary-fixed-dim': '#c8ca92',
-              'on-tertiary-fixed': '#1c1d00',
-              'secondary-container': '#d3ea78',
-              'on-secondary-fixed-variant': '#3f4c00',
-              'surface-bright': '#fbf9f8',
-              'surface-container-highest': '#e4e2e2',
-              'on-tertiary-container': '#fffbff',
-              surface: '#fbf9f8',
-              'on-primary-fixed': '#231b00',
-              error: '#ba1a1a',
-              'on-error-container': '#93000a',
-              'secondary-fixed': '#d6ed7b',
-              'inverse-on-surface': '#f2f0f0',
-              'on-secondary-fixed': '#181e00',
-              'outline-variant': '#c1c6d5',
-              'on-primary': '#ffffff',
-              'surface-variant': '#e4e2e2',
-              'on-tertiary': '#ffffff',
-              'on-secondary-container': '#586a00',
-              'surface-container': '#efeded',
-              'error-container': '#ffdad6',
-              'tertiary-container': '#757847',
-              'surface-container-high': '#e9e8e7'
-            },
-            borderRadius: { DEFAULT: '0.25rem', lg: '0.5rem', xl: '0.75rem', full: '9999px' },
-            spacing: {
-              'space-xs': '0.25rem',
-              'space-md': '1rem',
-              gutter: '1rem',
-              'margin-desktop': '3rem',
-              margin: '1rem',
-              'space-sm': '0.5rem',
-              'space-lg': '1.5rem',
-              'margin-tablet': '2rem',
-              'gutter-desktop': '1.5rem',
-              'space-xl': '2.5rem'
-            },
-            fontFamily: {
-              'display-md': ['Newsreader'],
-              'headline-lg-mobile': ['Newsreader'],
-              'label-lg': ['Plus Jakarta Sans'],
-              'display-lg-mobile': ['Newsreader'],
-              'headline-md': ['Newsreader'],
-              'label-sm': ['Plus Jakarta Sans'],
-              'label-md': ['Plus Jakarta Sans'],
-              'body-sm': ['Plus Jakarta Sans'],
-              'body-lg': ['Plus Jakarta Sans'],
-              'display-md-mobile': ['Newsreader'],
-              'display-lg': ['Newsreader'],
-              'headline-lg': ['Newsreader'],
-              'headline-sm': ['Newsreader'],
-              'body-md': ['Plus Jakarta Sans'],
-              headline: ['Inter'],
-              display: ['Inter'],
-              body: ['Inter'],
-              label: ['Inter']
-            },
-            fontSize: {
-              'display-md': [
-                '40px',
-                { lineHeight: '48px', letterSpacing: '-0.015em', fontWeight: '400' }
-              ],
-              'headline-lg-mobile': [
-                '26px',
-                { lineHeight: '32px', letterSpacing: '-0.01em', fontWeight: '500' }
-              ],
-              'label-lg': [
-                '14px',
-                { lineHeight: '20px', letterSpacing: '0.01em', fontWeight: '600' }
-              ],
-              'display-lg-mobile': [
-                '38px',
-                { lineHeight: '44px', letterSpacing: '-0.015em', fontWeight: '400' }
-              ],
-              'headline-md': ['24px', { lineHeight: '32px', fontWeight: '500' }],
-              'label-sm': [
-                '11px',
-                { lineHeight: '14px', letterSpacing: '0.04em', fontWeight: '700' }
-              ],
-              'label-md': [
-                '12px',
-                { lineHeight: '16px', letterSpacing: '0.025em', fontWeight: '600' }
-              ],
-              'body-sm': ['14px', { lineHeight: '20px', fontWeight: '400' }],
-              'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
-              'display-md-mobile': [
-                '30px',
-                { lineHeight: '36px', letterSpacing: '-0.01em', fontWeight: '400' }
-              ],
-              'display-lg': [
-                '56px',
-                { lineHeight: '64px', letterSpacing: '-0.02em', fontWeight: '400' }
-              ],
-              'headline-lg': [
-                '32px',
-                { lineHeight: '40px', letterSpacing: '-0.01em', fontWeight: '500' }
-              ],
-              'headline-sm': ['20px', { lineHeight: '28px', fontWeight: '600' }],
-              'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }]
-            }
-          }
-        }
-      }
-    </script>
-    <style>
-      body {
-        min-height: max(884px, 100dvh);
-      }
-    </style>
-    <style>
-      body {
-        min-height: max(884px, 100dvh);
-      }
-    </style>
-  </head>
-  <body
-    class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"
-  >
-    <header
-      class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
-    >
-      <div class="h-20 px-gutter flex flex-col justify-between py-space-xs">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-space-sm">
-            <img
-              alt="Descubre Trujillo Logo"
-              class="h-8 w-auto object-contain"
-              src="https://lh3.googleusercontent.com/aida/AEtjO1WzssQuAIalGh8jeNvmdvrYp9f109vqlvQPNqGR-sDNdroDWwq2A6QpzCmUMgWmVeMI8tW8cRzRTF_02I5lbxPdy-w_cSmppuv3sOxZD9VblLDAc8dsiwYaZ1EcMgahUGDxy_llhRzrAGQbZF2UnBB38HnCG9D5MpUNyHigfvA5X-021zJJvnUKVWDukgCTsKyzXNzdKMTohdgv4oLCmW3A11ftT6fgaPdC4BsCKS3AO1wJCj2CM2j7DlY"
-            />
-            <div class="flex flex-col">
-              <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest"
-                >Guía Oficial</span
-              >
-              <h1 class="font-headline-sm text-headline-sm text-on-surface leading-tight">
-                Descubre Trujillo
-              </h1>
-            </div>
-          </div>
-          <div class="flex items-center gap-space-xs">
-            <button
-              aria-label="Búsqueda rápida"
-              class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors"
-            >
-              <span class="material-symbols-outlined text-[22px]">search</span></button
-            ><button
-              aria-label="Notificaciones y avisos"
-              class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors relative"
-            >
-              <span class="material-symbols-outlined text-[22px]">notifications</span
-              ><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-primary"></span>
-            </button>
-            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-1">
-              <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
-            </div>
-          </div>
-        </div>
-        <div class="flex items-center justify-between pt-0.5">
-          <div class="flex items-center gap-1.5 text-on-surface-variant">
-            <span class="material-symbols-outlined text-[18px] text-primary">location_on</span>
-            <div class="relative inline-flex items-center">
-              <select
-                aria-label="Seleccionar distrito de Trujillo"
-                class="bg-transparent font-label-md text-label-md text-on-surface font-semibold appearance-none pr-5 focus:outline-none cursor-pointer"
-              >
-                <option value="trujillo">Trujillo Centro</option>
-                <option value="huanchaco">Huanchaco</option>
-                <option value="moche">Moche</option>
-                <option value="victor-larco">Víctor Larco Herrera</option>
-                <option value="las-delicias">Las Delicias</option>
-                <option value="salaverry">Salaverry</option></select
-              ><span
-                class="material-symbols-outlined text-[16px] pointer-events-none absolute right-0 text-on-surface-variant"
-                >expand_more</span
-              >
-            </div>
-          </div>
-          <div class="font-label-sm text-label-sm text-on-surface-variant">
-            <span class="font-medium text-on-surface">Inicio</span>
-          </div>
-        </div>
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "error": "#ba1a1a", "surface-bright": "#fbf9f8", "inverse-surface": "#303031", "on-primary-fixed": "#231b00", "surface-tint": "#725c00", "primary-fixed": "#ffe082", "error-container": "#ffdad6", "surface-container-high": "#e9e8e7", "on-surface": "#1b1c1c", "tertiary": "#5f6133", "surface-container-low": "#f5f3f3", "surface-container": "#efeded", "on-secondary-fixed-variant": "#3f4c00", "on-secondary-container": "#586a00", "on-error-container": "#93000a", "surface-dim": "#dbdad9", "on-primary-container": "#6e5800", "outline-variant": "#cfc6b1", "inverse-on-surface": "#f2f0f0", "background": "#fbf9f8", "primary-container": "#f2d062", "tertiary-container": "#d5d69d", "secondary": "#546500", "on-tertiary-fixed-variant": "#47491e", "secondary-container": "#d3ea78", "on-tertiary": "#ffffff", "surface": "#fbf9f8", "on-tertiary-container": "#5b5d2f", "on-surface-variant": "#4c4636", "secondary-fixed": "#d6ed7b", "on-primary": "#ffffff", "on-tertiary-fixed": "#1c1d00", "surface-container-highest": "#e4e2e2", "surface-variant": "#e4e2e2", "on-primary-fixed-variant": "#564500", "primary": "#725c00", "surface-container-lowest": "#ffffff", "tertiary-fixed-dim": "#c8ca92", "on-error": "#ffffff", "primary-fixed-dim": "#e5c457", "outline": "#7e7664", "on-secondary-fixed": "#181e00", "secondary-fixed-dim": "#bad062", "on-background": "#1b1c1c", "on-secondary": "#ffffff", "tertiary-fixed": "#e5e6ac", "inverse-primary": "#e5c457" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.5rem", "space-sm": "0.5rem", "gutter": "1rem", "space-xs": "0.25rem", "margin": "1.5rem", "space-xl": "2rem", "space-md": "1rem" }, "fontFamily": { "headline-lg": [ "Inter" ] }, "fontSize": { "headline-lg": [ "32px", { "lineHeight": "40px", "fontWeight": "600" } ] } } } }</script></head><body class="bg-surface font-headline-lg text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm" data-path="inicio" href="#"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined">explore</span></div><div class="flex flex-col"><span class="text-base font-semibold leading-tight text-on-surface">Descubre Trujillo</span><span class="text-xs text-on-surface-variant leading-tight">Guía de la Ciudad</span></div></a><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-low px-space-md py-space-xs rounded-xl"><span class="material-symbols-outlined text-primary text-[18px]">location_on</span><span class="text-xs text-on-surface-variant font-medium">Distrito:</span><button class="flex items-center gap-1 text-xs font-semibold text-on-surface"><span class="truncate max-w-[120px]">Trujillo Centro</span><span class="material-symbols-outlined text-[16px]">expand_more</span></button></div></div><div class="hidden md:flex flex-1 max-w-md mx-space-sm"><div class="relative w-full flex items-center bg-surface-container px-space-md py-space-xs rounded-xl"><span class="material-symbols-outlined text-outline text-[20px] mr-space-sm">search</span><input class="w-full bg-transparent text-xs text-on-surface placeholder:text-outline focus:outline-none" placeholder="Buscar lugares, gastronomía, eventos..." type="text"/></div></div><nav class="hidden lg:flex items-center gap-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="inicio" href="#">Inicio</a><a class="px-space-md py-space-xs text-xs text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" data-path="explorar-lugares" href="#">Explorar Lugares</a><a class="px-space-md py-space-xs text-xs text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" data-path="categorias" href="#">Categorías</a><a class="px-space-md py-space-xs text-xs text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" data-path="mapa-interactivo" href="#">Mapa</a><a class="px-space-md py-space-xs text-xs text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" data-path="favoritos" href="#">Favoritos</a><a class="px-space-md py-space-xs text-xs text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" data-path="sugerir-negocio" href="#">Sugerir Negocio</a></nav><div class="flex items-center gap-space-sm"><button class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors relative" title="Notificaciones"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button><a class="hidden sm:flex items-center gap-space-xs px-space-md py-space-xs bg-primary-container hover:bg-primary-fixed text-on-primary-container font-medium text-xs rounded-xl transition-colors" data-path="iniciar-sesion" href="#"><span class="material-symbols-outlined text-[18px]">login</span><span>Ingresar</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- 1. HERO SECTION (Cinematográfico, sangrado hacia arriba para conectar con el header translúcido) -->
+<section class="relative w-full -mt-20 pt-28 pb-20 overflow-hidden bg-surface-container-high">
+<!-- Background Image con Scrim cálido terracota / noche virreinal -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Cinematic wide-angle view of Plaza de Armas de Trujillo at warm golden hour dusk. Colonial yellow baroque cathedral towers, ornate iron street lamps glowing warmly, tall royal palms, vibrant terracotta and ochre colonial mansions with wrought-iron balconies in the background under an amber and deep teal sky. High definition travel photography, editorial magazine aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD1udxzQ9TCw3pPVKl76xprsaER1LV0_Lf2rHCRR23mnJkbMdzGLuKIQNgRoS8cl8jTz-9BHb6-Mw3bSZa35M9A8p2FczwNF6aQK13C2mw8z_4k-AM21X8ANBp0pal7-ezx6yujcIW2nGh15WzaK50zpCIfVfa2nDz6s-Lk1vxKtwNrhigbjlV1yv-pX_4HE8MBMVQBqN9Tb86m1ZRMsSGr1XhtBhefb_PhMGTbVDjZK-Cp0-aee13c')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/65 to-inverse-surface/40"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/30 via-transparent to-tertiary/20 mix-blend-multiply"></div>
+<div class="relative z-10 w-full max-w-7xl mx-auto px-margin flex flex-col items-center text-center mt-8">
+<!-- Tag editorial sutil -->
+<div class="inline-flex items-center gap-space-xs bg-surface-container-lowest/15 backdrop-blur-md px-4 py-1.5 rounded-full text-surface-bright text-xs font-semibold tracking-wider uppercase mb-6 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+        Guía Urbana y Cultural 2025
       </div>
-    </header>
-    <main class="flex flex-col relative w-full pt-20 pb-24 bg-surface min-h-screen">
-      <div class="flex flex-col w-full">
-        <!-- 1. Hero Principal Editorial -->
-        <section class="relative px-margin pt-space-md pb-space-lg">
-          <div
-            class="relative w-full rounded-xl overflow-hidden shadow-sm bg-surface-container-low"
-          >
-            <!-- Background editorial image with warm scrim -->
-            <div
-              class="bg-cover bg-center w-full min-h-[340px] flex flex-col justify-end p-space-md relative"
-              data-alt="Editorial warm photograph of an elegant sunlit colonial courtyard in Trujillo Peru with terracotta arches, intricate wrought iron lanterns, and flowering bougainvillea under a bright coastal sky, bathed in warm golden hour sunlight with soft shadows"
-              style="
-                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCa-O_7IQOfqQOTjhcy8mw9NmHSpFIEMTn4vUx2_nIVczdOBc68En7YNVZwcK79RvQItQC_yXBK6UYr3Jfs3_KkR2uq5ag4_bamqirHqkipE4lq7QhaQGm_9ayhUyQeihUBH-UB5KTkjCVeDC3j3YNOaakpG6ZuphixjRgToHycWPuDMRqEwXn5uhiTFnf660uYqPvoirCaRp9JmdQM55FNOMm2qHW3JLq7teItDL3529s-CwxdKkX-');
-              "
-            >
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-surface via-surface/75 to-transparent"
-              ></div>
-              <!-- Text overlay -->
-              <div class="relative z-10 flex flex-col gap-1.5 mb-space-sm">
-                <div
-                  class="inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-variant"
-                >
-                  <span class="material-symbols-outlined text-[14px] text-primary"
-                    >local_florist</span
-                  >
-                  <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary"
-                    >Edición Norte 2025</span
-                  >
-                </div>
-                <h2
-                  class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-display-md leading-tight"
-                >
-                  Tu próxima experiencia está en Trujillo
-                </h2>
-                <p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
-                  Descubre dónde comer, qué visitar y qué hacer en tu ciudad colonial y costera.
-                </p>
-              </div>
+<!-- Titular Principal & Bajada -->
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-surface-lowest text-white max-w-4xl leading-[1.15] drop-shadow-sm">
+        Tu próxima experiencia está en <span class="text-primary-fixed underline decoration-primary-fixed/50 decoration-wavy underline-offset-8">Trujillo</span>
+</h1>
+<p class="mt-5 text-base sm:text-lg text-surface-container-high max-w-2xl font-normal leading-relaxed drop-shadow">
+        Descubre dónde comer, qué visitar y qué hacer en la capital de la eterna primavera. Rutas auténticas, sabor mochero y joyas virreinales.
+      </p>
+<!-- Buscador Multiparámetro Prominente -->
+<div class="w-full max-w-5xl mt-10 bg-surface-container-lowest rounded-2xl p-2.5 sm:p-3 shadow-2xl flex flex-col lg:flex-row items-center gap-2">
+<!-- Input de Texto -->
+<div class="flex items-center gap-3 px-4 py-3 bg-surface-container-low rounded-xl flex-1 w-full text-left">
+<span class="material-symbols-outlined text-primary text-[22px]">search</span>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="text-[10px] uppercase font-bold tracking-wider text-on-surface-variant">¿Qué buscas?</span>
+<input class="bg-transparent text-sm text-on-surface placeholder:text-outline font-medium focus:outline-none w-full truncate" placeholder="Ej: Cevichería El Mochica, Café colonial..." type="text"/>
+</div>
+</div>
+<!-- Selector de Categoría -->
+<div class="flex items-center gap-3 px-4 py-3 bg-surface-container-low rounded-xl w-full lg:w-56 text-left relative group cursor-pointer">
+<span class="material-symbols-outlined text-tertiary text-[22px]">restaurant</span>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="text-[10px] uppercase font-bold tracking-wider text-on-surface-variant">Categoría</span>
+<select class="bg-transparent text-sm text-on-surface font-semibold focus:outline-none cursor-pointer appearance-none pr-4 w-full truncate">
+<option value="">Todas las categorías</option>
+<option value="cevicherias">Cevicherías &amp; Marinos</option>
+<option value="criolla">Comida Criolla &amp; Tradición</option>
+<option value="cafes">Cafeterías &amp; Tostadurías</option>
+<option value="patrimonio">Casonas &amp; Museos</option>
+<option value="bares">Bares &amp; Coctelería</option>
+</select>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">expand_more</span>
+</div>
+<!-- Selector de Zona / Distrito -->
+<div class="flex items-center gap-3 px-4 py-3 bg-surface-container-low rounded-xl w-full lg:w-56 text-left relative group cursor-pointer">
+<span class="material-symbols-outlined text-secondary text-[22px]">near_me</span>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="text-[10px] uppercase font-bold tracking-wider text-on-surface-variant">Zona o Distrito</span>
+<select class="bg-transparent text-sm text-on-surface font-semibold focus:outline-none cursor-pointer appearance-none pr-4 w-full truncate">
+<option value="">Todo Trujillo</option>
+<option value="centro">Centro Histórico</option>
+<option value="huanchaco">Huanchaco Playa</option>
+<option value="victor-larco">Víctor Larco / California</option>
+<option value="moche">Moche Campiña</option>
+<option value="el-golf">El Golf</option>
+</select>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">expand_more</span>
+</div>
+<!-- Botón de Acción Principal -->
+<button class="w-full lg:w-auto px-8 py-4 bg-primary hover:bg-on-primary-container text-on-primary font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">travel_explore</span>
+<span>Explorar lugares</span>
+</button>
+</div>
+<!-- Quick badges bajo el buscador -->
+<div class="flex flex-wrap items-center justify-center gap-2 mt-5 text-xs text-surface-container-lowest/80">
+<span class="text-surface-container-high/60">Búsquedas del momento:</span>
+<button class="px-3 py-1 rounded-full bg-surface-container-lowest/20 hover:bg-surface-container-lowest/30 backdrop-blur-sm text-surface-bright transition-colors cursor-pointer">Cabrito norteño</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-lowest/20 hover:bg-surface-container-lowest/30 backdrop-blur-sm text-surface-bright transition-colors cursor-pointer">Casona Urquiaga</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-lowest/20 hover:bg-surface-container-lowest/30 backdrop-blur-sm text-surface-bright transition-colors cursor-pointer">Puesta de sol Huanchaco</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-lowest/20 hover:bg-surface-container-lowest/30 backdrop-blur-sm text-surface-bright transition-colors cursor-pointer">Shámbar tradicional</button>
+</div>
+</div>
+</section>
+<!-- 2. SECCIÓN: EXPLORAR POR RUBRO (Cuadrícula interactiva estilizada) -->
+<section class="w-full max-w-7xl mx-auto px-margin py-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+<div>
+<span class="text-xs uppercase tracking-widest font-bold text-secondary">Categorías de la Ciudad</span>
+<h2 class="text-3xl font-bold tracking-tight text-on-surface mt-1">Explora por rubro de interés</h2>
+</div>
+<a class="text-xs font-semibold text-primary hover:text-on-primary-container flex items-center gap-1 group" href="#">
+        Ver catálogo completo de comercios
+        <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+<!-- Item 1: Cevicherías -->
+<div class="group bg-surface-container-lowest hover:bg-surface-container-low p-5 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center cursor-pointer transform hover:-translate-y-1">
+<div class="w-14 h-14 rounded-2xl bg-secondary-container text-on-secondary-container flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">set_meal</span>
+</div>
+<h3 class="font-bold text-sm text-on-surface">Cevicherías</h3>
+<p class="text-xs text-on-surface-variant mt-0.5">36 locales</p>
+</div>
+<!-- Item 2: Cafeterías -->
+<div class="group bg-surface-container-lowest hover:bg-surface-container-low p-5 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center cursor-pointer transform hover:-translate-y-1">
+<div class="w-14 h-14 rounded-2xl bg-primary-container text-on-primary-container flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">coffee</span>
+</div>
+<h3 class="font-bold text-sm text-on-surface">Cafeterías</h3>
+<p class="text-xs text-on-surface-variant mt-0.5">28 locales</p>
+</div>
+<!-- Item 3: Comida Criolla -->
+<div class="group bg-surface-container-lowest hover:bg-surface-container-low p-5 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center cursor-pointer transform hover:-translate-y-1">
+<div class="w-14 h-14 rounded-2xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">skillet</span>
+</div>
+<h3 class="font-bold text-sm text-on-surface">Comida Criolla</h3>
+<p class="text-xs text-on-surface-variant mt-0.5">42 locales</p>
+</div>
+<!-- Item 4: Pollerías -->
+<div class="group bg-surface-container-lowest hover:bg-surface-container-low p-5 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center cursor-pointer transform hover:-translate-y-1">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high text-on-surface flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">local_fire_department</span>
+</div>
+<h3 class="font-bold text-sm text-on-surface">Pollerías</h3>
+<p class="text-xs text-on-surface-variant mt-0.5">19 locales</p>
+</div>
+<!-- Item 5: Bares y Noche -->
+<div class="group bg-surface-container-lowest hover:bg-surface-container-low p-5 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center cursor-pointer transform hover:-translate-y-1">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed text-on-secondary-fixed-variant flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">nightlife</span>
+</div>
+<h3 class="font-bold text-sm text-on-surface">Bares &amp; Noche</h3>
+<p class="text-xs text-on-surface-variant mt-0.5">24 locales</p>
+</div>
+<!-- Item 6: Turismo y Casonas -->
+<div class="group bg-surface-container-lowest hover:bg-surface-container-low p-5 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center cursor-pointer transform hover:-translate-y-1">
+<div class="w-14 h-14 rounded-2xl bg-primary-fixed text-on-primary-fixed-variant flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">account_balance</span>
+</div>
+<h3 class="font-bold text-sm text-on-surface">Casonas &amp; Guías</h3>
+<p class="text-xs text-on-surface-variant mt-0.5">31 puntos</p>
+</div>
+</div>
+</section>
+<!-- 3. SECCIÓN: LUGARES POPULARES Y RECOMENDADOS (Tarjetas completas con badge y rating) -->
+<section class="w-full bg-surface-container-low py-16">
+<div class="max-w-7xl mx-auto px-margin">
+<div class="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-10 gap-4">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs uppercase tracking-widest font-bold text-primary">Selección del Editor</span>
+</div>
+<h2 class="text-3xl font-bold tracking-tight text-on-surface mt-1">Lugares Populares y Recomendados</h2>
+<p class="text-xs text-on-surface-variant mt-1">Establecimientos con las mejores calificaciones del público trujillano y visitantes.</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-9 h-9 rounded-xl bg-surface-container-lowest flex items-center justify-center text-on-surface shadow-sm hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="w-9 h-9 rounded-xl bg-surface-container-lowest flex items-center justify-center text-on-surface shadow-sm hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Grid 4 Columnas -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Tarjeta 1: Restaurante El Mochica -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative h-48 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Gourmet Peruvian coastal restaurant in Trujillo with polished colonial brick walls, warm amber lighting, artisan wooden tables, and elegant presentation of seafood and cocktails. Professional restaurant photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBT_85B7xitQCT-Wi2RyHn-QvTEi8Nbjye4i1Vp7x6wi7AATS45K2tdBTGPvZTM5lJGcZagSj4X-3qm8hYNtUvWJV7P9kICx7TWPvrlVv2XB8E8sOc6HhxIyBCk6BE1wVdchlFl4tQ-uutACgL4SLm82KelugsKzzTexNjuuAgwpDpp026yAU7QbggGO85kLJ7LxyhzAAy7TQXjHlb8b05kS3vc4N-OFMsFQ-0_frlN8EgIjOWNwViF')">
+</div>
+<div class="absolute top-3 left-3 bg-secondary text-on-secondary text-[11px] font-bold px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-lowest animate-pulse"></span>
+              Abierto ahora
             </div>
-            <!-- Prominent Search Panel -->
-            <div
-              class="p-space-md bg-surface-container-lowest flex flex-col gap-space-sm shadow-sm"
-            >
-              <!-- Main Input -->
-              <div
-                class="flex items-center px-space-sm py-2.5 rounded-lg bg-surface-container-low text-on-surface"
-              >
-                <span class="material-symbols-outlined text-[20px] text-primary mr-2">search</span>
-                <input
-                  class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none"
-                  placeholder="¿Qué lugar estás buscando hoy?"
-                  type="text"
-                />
-              </div>
-              <!-- Quick category chips (Horizontal scroll) -->
-              <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
-                <button
-                  class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shrink-0 shadow-sm"
-                >
-                  <span class="material-symbols-outlined text-[16px]">restaurant</span>
-                  <span>Restaurantes</span>
-                </button>
-                <button
-                  class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md shrink-0 transition-colors"
-                >
-                  <span class="material-symbols-outlined text-[16px]">coffee</span>
-                  <span>Cafés</span>
-                </button>
-                <button
-                  class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md shrink-0 transition-colors"
-                >
-                  <span class="material-symbols-outlined text-[16px]">attractions</span>
-                  <span>Qué hacer</span>
-                </button>
-                <button
-                  class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md shrink-0 transition-colors"
-                >
-                  <span class="material-symbols-outlined text-[16px]">museum</span>
-                  <span>Cultura</span>
-                </button>
-              </div>
-              <!-- Zone Selector + CTA Button -->
-              <div class="flex items-center gap-2 pt-1">
-                <div class="relative flex-1 bg-surface-container-low rounded-lg px-2.5 py-2">
-                  <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-1.5 text-on-surface-variant">
-                      <span class="material-symbols-outlined text-[16px] text-secondary"
-                        >explore</span
-                      >
-                      <select
-                        aria-label="Seleccionar vecindario"
-                        class="bg-transparent font-label-md text-label-md text-on-surface font-semibold appearance-none pr-4 focus:outline-none cursor-pointer w-full"
-                      >
-                        <option value="todos">Toda la ciudad</option>
-                        <option value="centro">Centro Histórico</option>
-                        <option value="california">California</option>
-                        <option value="el-golf">El Golf</option>
-                        <option value="huanchaco">Huanchaco</option>
-                        <option value="moche">Campiña de Moche</option>
-                        <option value="victor-larco">Víctor Larco</option>
-                      </select>
-                    </div>
-                    <span
-                      class="material-symbols-outlined text-[16px] pointer-events-none text-on-surface-variant absolute right-2"
-                      >expand_more</span
-                    >
-                  </div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md text-on-surface flex items-center justify-center hover:text-error hover:bg-surface transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant mb-1">
+<span class="font-medium text-tertiary">Comida Marina &amp; Norteña</span>
+<span class="font-bold text-on-surface">$$$</span>
+</div>
+<h3 class="font-bold text-base text-on-surface group-hover:text-primary transition-colors">Restaurante El Mochica</h3>
+<p class="text-xs text-on-surface-variant line-clamp-2 mt-1">Cuna de la auténtica causa en lapa y ceviche con ají mochero. Clásico imperdible desde 1968.</p>
+<div class="flex items-center gap-2 mt-3 text-xs">
+<div class="flex items-center text-primary font-bold">
+<span class="material-symbols-outlined text-[16px] mr-1" style="font-variation-settings: 'FILL' 1;">star</span>
+                  4.9
                 </div>
-                <button
-                  class="px-4 py-2.5 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold shrink-0 shadow-sm flex items-center gap-1.5 active:scale-95 transition-transform"
-                >
-                  <span>Explorar</span>
-                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                </button>
-              </div>
+<span class="text-on-surface-variant/40">•</span>
+<span class="text-on-surface-variant">540 reseñas</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between bg-surface-container-low px-3 py-2 rounded-xl">
+<div class="flex items-center gap-1 text-[11px] text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-[16px] text-outline">location_on</span>
+<span>Huanchaco Malecón</span>
+</div>
+<a class="text-xs font-bold text-primary hover:underline" href="#">Ver ficha</a>
+</div>
+</div>
+</div>
+<!-- Tarjeta 2: Café Amatista & Casona -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative h-48 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Charming colonial patio cafe in Trujillo historic downtown with yellow arches, potted green ferns, vintage tiled floors, hand-dripped specialty coffee on dark wood table in natural morning sunlight. Editorial cafe shot." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCysJI_RYr8VCv7W6ic57aYd0tliR2P0duh-azywTKE0yHAYsYLmMFj5Q4Jhlr9Er-5FKLF89uc54VtZUyN6IkeFoViGe9A4oYZlW0JMWqHYzKkYMU_XdO1u0prl2kKjM_wC2wmnNJMSXyxg7pBljoC6LR9FxUmjaUcWnFNjMgU6xeHcPN1zxrEztKoFa7DEYlq2y-9PtZHg-_-XmwjEq1BE0oSMx0nJLorbfuAotFWYN3TULtuK8C_')">
+</div>
+<div class="absolute top-3 left-3 bg-secondary text-on-secondary text-[11px] font-bold px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-lowest animate-pulse"></span>
+              Abierto ahora
             </div>
-          </div>
-        </section>
-        <!-- 2. Categorías Rápidas -->
-        <section class="flex flex-col gap-space-sm px-margin pb-space-lg">
-          <div class="flex items-center justify-between">
-            <div>
-              <h3 class="font-headline-sm text-headline-sm text-on-surface">Explorar por rubro</h3>
-              <p class="font-label-sm text-label-sm text-on-surface-variant">
-                Los rincones más queridos de la ciudad
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md text-on-surface flex items-center justify-center hover:text-error hover:bg-surface transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant mb-1">
+<span class="font-medium text-tertiary">Cafetería de Especialidad</span>
+<span class="font-bold text-on-surface">$$</span>
+</div>
+<h3 class="font-bold text-base text-on-surface group-hover:text-primary transition-colors">Café Patio de la Encalada</h3>
+<p class="text-xs text-on-surface-variant line-clamp-2 mt-1">Cafés de origen andino y repostería artesanal en el patio de una casona de 1820.</p>
+<div class="flex items-center gap-2 mt-3 text-xs">
+<div class="flex items-center text-primary font-bold">
+<span class="material-symbols-outlined text-[16px] mr-1" style="font-variation-settings: 'FILL' 1;">star</span>
+                  4.8
+                </div>
+<span class="text-on-surface-variant/40">•</span>
+<span class="text-on-surface-variant">312 reseñas</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between bg-surface-container-low px-3 py-2 rounded-xl">
+<div class="flex items-center gap-1 text-[11px] text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-[16px] text-outline">location_on</span>
+<span>Centro Histórico</span>
+</div>
+<a class="text-xs font-bold text-primary hover:underline" href="#">Ver ficha</a>
+</div>
+</div>
+</div>
+<!-- Tarjeta 3: Casona Orbegoso -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative h-48 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Interior courtyard of historic Spanish colonial mansion Casa Orbegoso in Trujillo Peru, intricate carved wooden balconies, high ceilings, preserved historical paintings and sunny stone patio. Architectural heritage photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCkGKTVvlxHufwVRHuLd8Re2GZJDYywJWsv_jaS_1BOoE7hF03ZrmzBvHoqmhkBw7fjwUInNMalw0unYI0A0oKTQCVMbM2qWMqrDZIUTUjNj2hsWw_uRdv6Z0iUIgZ8PKSmbKaCPG65GZ8Bkfy2guhxYmkz2D3liyyRwV7a2KEQyBl6cF0cfjUdEAra7H6IBEw-tys2c_7041qCgQiOYNyL0os8nsJ9N_a0xvEhTKxCXBvgPNHp-psJ')">
+</div>
+<div class="absolute top-3 left-3 bg-secondary text-on-secondary text-[11px] font-bold px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-lowest animate-pulse"></span>
+              Abierto ahora
+            </div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md text-on-surface flex items-center justify-center hover:text-error hover:bg-surface transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant mb-1">
+<span class="font-medium text-tertiary">Museo &amp; Casona Histórica</span>
+<span class="font-bold text-on-surface">$</span>
+</div>
+<h3 class="font-bold text-base text-on-surface group-hover:text-primary transition-colors">Casa de la Emancipación</h3>
+<p class="text-xs text-on-surface-variant line-clamp-2 mt-1">Santuario cívico de la libertad con exposiciones de arte contemporáneo y colecciones numismáticas.</p>
+<div class="flex items-center gap-2 mt-3 text-xs">
+<div class="flex items-center text-primary font-bold">
+<span class="material-symbols-outlined text-[16px] mr-1" style="font-variation-settings: 'FILL' 1;">star</span>
+                  4.9
+                </div>
+<span class="text-on-surface-variant/40">•</span>
+<span class="text-on-surface-variant">780 reseñas</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between bg-surface-container-low px-3 py-2 rounded-xl">
+<div class="flex items-center gap-1 text-[11px] text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-[16px] text-outline">location_on</span>
+<span>Jr. Pizarro, Centro</span>
+</div>
+<a class="text-xs font-bold text-primary hover:underline" href="#">Ver ficha</a>
+</div>
+</div>
+</div>
+<!-- Tarjeta 4: Taberna Marina Big Ben -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+<div class="relative h-48 w-full overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Upscale beachside seafood bar in Huanchaco overlooking the Pacific ocean waves, sunset glow hitting artisanal ceramic plates with fresh tiradito and craft pisco cocktails. High-end food and travel photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCaNtScGBGlpItkugZIBgl-OGYnxkKVIniD5gsRTW6Hp2uMW9yzwClUsIun0Rk-MYM9vctxHheVXqx2M8QKy4mS-e6vNwVO3zYF9dZK8e-7CmI3o_9mlUxt33VkbJ9dvvPSJo6f_Fpe2S8m2YlU3mSjOvR_tJZRTpEX0EvLTMbxZYKaHRD4d7nbzfzevb5EhstlwQci_q23VxYIiZ_1gdEY1PlWYcWQP4bYUe1mc4cF3mwoUp96ChC_')">
+</div>
+<div class="absolute top-3 left-3 bg-secondary text-on-secondary text-[11px] font-bold px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-lowest animate-pulse"></span>
+              Abierto ahora
+            </div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md text-on-surface flex items-center justify-center hover:text-error hover:bg-surface transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="p-5 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant mb-1">
+<span class="font-medium text-tertiary">Pescados, Mariscos &amp; Bar</span>
+<span class="font-bold text-on-surface">$$$</span>
+</div>
+<h3 class="font-bold text-base text-on-surface group-hover:text-primary transition-colors">Big Ben Huanchaco</h3>
+<p class="text-xs text-on-surface-variant line-clamp-2 mt-1">Tradición marinera frente a los caballitos de totora. Pescado fresco del día y vista panorámica al mar.</p>
+<div class="flex items-center gap-2 mt-3 text-xs">
+<div class="flex items-center text-primary font-bold">
+<span class="material-symbols-outlined text-[16px] mr-1" style="font-variation-settings: 'FILL' 1;">star</span>
+                  4.8
+                </div>
+<span class="text-on-surface-variant/40">•</span>
+<span class="text-on-surface-variant">620 reseñas</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between bg-surface-container-low px-3 py-2 rounded-xl">
+<div class="flex items-center gap-1 text-[11px] text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-[16px] text-outline">location_on</span>
+<span>Av. Víctor Larco, Playa</span>
+</div>
+<a class="text-xs font-bold text-primary hover:underline" href="#">Ver ficha</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. SECCIÓN: ¿QUÉ SE TE ANTOJA HOY? (Gastronomía regional en mosaico) -->
+<section class="w-full max-w-7xl mx-auto px-margin py-20">
+<div class="text-center max-w-2xl mx-auto mb-12">
+<span class="text-xs uppercase tracking-widest font-bold text-primary">Sabor Trujillano &amp; Identidad</span>
+<h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-on-surface mt-1">¿Qué se te antoja hoy?</h2>
+<p class="text-xs sm:text-sm text-on-surface-variant mt-2 leading-relaxed">
+        Nuestra gastronomía es patrimonio vivo. Encuentra el rincón perfecto para saborear las delicias que definen al norte del Perú.
+      </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Plato 1: Seco de Cabrito -->
+<div class="group relative rounded-2xl overflow-hidden h-96 shadow-md cursor-pointer flex flex-col justify-end p-6">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700" data-alt="Authentic Peruvian Seco de Cabrito norteño dish in clay plate, tender goat stew infused with chicha de jora and fresh cilantro, served with creamy canario beans, fluffy white rice and sarza criolla. Warm dramatic food photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBKLCDzzQ8qI1NJSxDn1DG7aYt-zO_914SXGCVICED2-WMRMpVRyITRX9Qjomor7xNR3ySgRiliG8hLtNr8jGZsyOG5ocz3e-REMARRT2S51ujpW7enTGnSqV5TxsBhWhuC4MR3s33ltda5Ht1-4Men55E2XHiZgDGlr9xC46wnQMtrP8xKBC19pJu1Qx0qypowKOkqCrHiHwgq83OpKbNSQddQQgDGoqQPyV2rPyx6mtjCC8af_0EM')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/40 to-transparent"></div>
+<div class="relative z-10">
+<span class="px-2.5 py-0.5 rounded-full bg-primary text-on-primary text-[10px] font-bold uppercase tracking-wider">Tradición Norteña</span>
+<h3 class="text-xl font-bold text-white mt-2">Seco de Cabrito</h3>
+<p class="text-xs text-surface-container-high mt-1 line-clamp-2">Macerado en chicha de jora norteña con loche de campiña y frijoles refritos.</p>
+<div class="flex items-center gap-1 text-primary-fixed text-xs font-semibold mt-3 group-hover:translate-x-1 transition-transform">
+<span>Explorar 24 restaurantes</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Plato 2: Shámbar de Lunes -->
+<div class="group relative rounded-2xl overflow-hidden h-96 shadow-md cursor-pointer flex flex-col justify-end p-6">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700" data-alt="Traditional hot bowl of Shambar soup from Trujillo Peru, steaming hearty broth made with wheat berries, various legumes, smoked ham and crisp pork cracklings, garnished with fresh herbs and toasted cancha corn on the side. Macro food photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAo5CqFN1zJqUfjp-wa1JL_-qIVL_ZXkI4M8e_zoedYqxYz0oOK9oTNR4OT3-HfKkCD_IiqvDspYzWWZIjkBOqFOM0SiBezOX9nIl0OfkXlKJtSvjz30BEq7oIVtpa6RVn_YBflp6UInoQZnaS68nSJ-SgK-PHCY0uEXEN5r6UOVoyt93jIFMakwSM82aD8jnPzPHROSIrV42yIIn3h04zmD7GCjj7stNJ0ofkBHwNgQRVsvr1-bEYs')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/40 to-transparent"></div>
+<div class="relative z-10">
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary text-on-tertiary text-[10px] font-bold uppercase tracking-wider">Rito de cada Lunes</span>
+<h3 class="text-xl font-bold text-white mt-2">Shámbar Trujillano</h3>
+<p class="text-xs text-surface-container-high mt-1 line-clamp-2">Trigo shámbar, pellejo de cerdo crocante y hierba buena servido con cancha caliente.</p>
+<div class="flex items-center gap-1 text-primary-fixed text-xs font-semibold mt-3 group-hover:translate-x-1 transition-transform">
+<span>Ver locales del lunes</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Plato 3: Ceviche con Ají Mochero -->
+<div class="group relative rounded-2xl overflow-hidden h-96 shadow-md cursor-pointer flex flex-col justify-end p-6">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700" data-alt="Fresh Peruvian ceviche trujillano prepared with fresh catch of the day, zesty key limes, thin sliced red onions, cilantro, and fragrant yellow aji mochero chili, garnished with sweet potato and boiled corn. Vibrant coastal natural lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwOv1JmviFJ3pBO_qCzPaftN04JA96C3MqdqYSvRjMDk3KEsuRedY9snEQrRAK-_z--HbvN61I_DPaijlN7LViiTGsQaMZYyjW5bWg38azpN2DiOn18RBNjlYmg2_UVJSYr4AUpNCLUoTK4p1KzBbKduRPSuBnljELL7Hz6N-OkcDno07058Tf4pZmhgx3x5tAStYQhShlFIbi1_dY-mxddylw9aPuSrE3Hojc1ybYOh5OHraJNe2M')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/40 to-transparent"></div>
+<div class="relative z-10">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary text-on-secondary text-[10px] font-bold uppercase tracking-wider">Fresco del Mar</span>
+<h3 class="text-xl font-bold text-white mt-2">Ceviche Mochero</h3>
+<p class="text-xs text-surface-container-high mt-1 line-clamp-2">Pescado fresco del día aromatizado con el inconfundible y cítrico ají mochero de la campiña.</p>
+<div class="flex items-center gap-1 text-primary-fixed text-xs font-semibold mt-3 group-hover:translate-x-1 transition-transform">
+<span>36 cevicherías activas</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Plato 4: Postres Tradicionales & Dulces -->
+<div class="group relative rounded-2xl overflow-hidden h-96 shadow-md cursor-pointer flex flex-col justify-end p-6">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700" data-alt="Artisanal Peruvian traditional desserts from Trujillo, featuring delicate cornstarch alfajores filled with dulce de leche manjar blanco, dusted in powdered sugar, served on a vintage ceramic plate in a warm bakery atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtdMawz99e8zJYPoQvKs94B1E_T57rgTENHhnfkYFdiGmHFq-AN3zhWeeDsXx5oEv-QosusX_9aoHBH4BNiIAKAxIGQbj5PohKyNvNpCp8bKSyRiQcWO2vzBB6o3gi3PdNshpaRNcS4TjnoK2Lc3ONxzMG7OvXiAGKypyp_zeCbJAL1kswAWpZneyCdVnd_Pcdoq2HrfXTbdhHHjwRpS2FufV7a3HEafV3aknwWFmSf5jSa4zD41AY')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-inverse-surface/40 to-transparent"></div>
+<div class="relative z-10">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold uppercase tracking-wider">Dulces de Antaño</span>
+<h3 class="text-xl font-bold text-white mt-2">Alfajores &amp; Ranfañote</h3>
+<p class="text-xs text-surface-container-high mt-1 line-clamp-2">Manjar blanco de olla, alfajores suaves de manteca y dulces conventuales virreinales.</p>
+<div class="flex items-center gap-1 text-primary-fixed text-xs font-semibold mt-3 group-hover:translate-x-1 transition-transform">
+<span>Ruta de dulcerías</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. SECCIÓN: DESCUBRE POR ZONA (Tarjetas panorámicas de distritos) -->
+<section class="w-full bg-surface-container py-16">
+<div class="max-w-7xl mx-auto px-margin">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+<div>
+<span class="text-xs uppercase tracking-widest font-bold text-secondary">Geografía &amp; Distritos</span>
+<h2 class="text-3xl font-bold tracking-tight text-on-surface mt-1">Descubre por Zona</h2>
+<p class="text-xs text-on-surface-variant mt-1">Cada rincón de la provincia guarda una identidad y ritmo propios.</p>
+</div>
+<div class="text-xs text-on-surface-variant font-medium">
+          Mostrando los 4 sectores turísticos más concurridos
+        </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Zona 1: Centro Histórico -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group flex flex-col sm:flex-row h-auto sm:h-64">
+<div class="sm:w-1/2 h-48 sm:h-full relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Pedestrian cobblestone street in Centro Historico Trujillo with colorful colonial facade balconies, historic street lamps, and people leisurely walking in sunny afternoon. Travel editorial photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCtNBKlA-AmB5gX3xcJ3Sj20-JB5CelepGWmvdKZPvaUqD6LUHzfEqNytU5jJxBSjuPJ4bRFQ1_kNqaD-bhzNQmMmJUZFFdO4EI2FMevW20m0DbX2ETq2kYBY2_dUu8XFM2qiuEuXcd3MMNmO-ZPZ1uQLqW7wEco7wihnFhnwwuG-_AjeaCXxmeH8aaB923Pfbt32_OmUdr-b_ibwShdI76qdtnXQleVatf2upWrt58ZkmV3rXTzr7Q')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-transparent via-transparent to-surface-container-lowest/20"></div>
+</div>
+<div class="sm:w-1/2 p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1.5 text-xs text-primary font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">museum</span>
+<span>Patrimonio Cultural</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mt-1 group-hover:text-primary transition-colors">Centro Histórico</h3>
+<p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                El corazón de las casonas virreinales, templos barrocos, cafés de tertulia y el Paseo Peatonal Pizarro.
               </p>
-            </div>
-            <a
-              class="font-label-md text-label-md text-primary font-semibold flex items-center"
-              href="#"
-            >
-              Ver todo
-              <span class="material-symbols-outlined text-[14px] ml-0.5">chevron_right</span>
-            </a>
-          </div>
-          <!-- Scrollable category icons grid-row -->
-          <div class="flex gap-3 overflow-x-auto no-scrollbar py-1">
-            <!-- Categoria 1 -->
-            <a
-              class="flex flex-col items-center p-3 rounded-xl bg-surface-container-lowest shrink-0 w-24 text-center shadow-sm active:scale-95 transition-transform"
-              href="#"
-            >
-              <div
-                class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed mb-1.5"
-              >
-                <span class="material-symbols-outlined text-[24px]">set_meal</span>
-              </div>
-              <span
-                class="font-label-md text-label-md text-on-surface font-semibold truncate w-full"
-                >Cevicherías</span
-              >
-              <span class="font-label-sm text-label-sm text-on-surface-variant text-[10px]"
-                >36 locales</span
-              >
-            </a>
-            <!-- Categoria 2 -->
-            <a
-              class="flex flex-col items-center p-3 rounded-xl bg-surface-container-lowest shrink-0 w-24 text-center shadow-sm active:scale-95 transition-transform"
-              href="#"
-            >
-              <div
-                class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container mb-1.5"
-              >
-                <span class="material-symbols-outlined text-[24px]">coffee</span>
-              </div>
-              <span
-                class="font-label-md text-label-md text-on-surface font-semibold truncate w-full"
-                >Cafeterías</span
-              >
-              <span class="font-label-sm text-label-sm text-on-surface-variant text-[10px]"
-                >28 locales</span
-              >
-            </a>
-            <!-- Categoria 3 -->
-            <a
-              class="flex flex-col items-center p-3 rounded-xl bg-surface-container-lowest shrink-0 w-24 text-center shadow-sm active:scale-95 transition-transform"
-              href="#"
-            >
-              <div
-                class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary mb-1.5"
-              >
-                <span class="material-symbols-outlined text-[24px]">skillet</span>
-              </div>
-              <span
-                class="font-label-md text-label-md text-on-surface font-semibold truncate w-full"
-                >Criolla</span
-              >
-              <span class="font-label-sm text-label-sm text-on-surface-variant text-[10px]"
-                >42 locales</span
-              >
-            </a>
-            <!-- Categoria 4 -->
-            <a
-              class="flex flex-col items-center p-3 rounded-xl bg-surface-container-lowest shrink-0 w-24 text-center shadow-sm active:scale-95 transition-transform"
-              href="#"
-            >
-              <div
-                class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed-variant mb-1.5"
-              >
-                <span class="material-symbols-outlined text-[24px]">bakery_dining</span>
-              </div>
-              <span
-                class="font-label-md text-label-md text-on-surface font-semibold truncate w-full"
-                >Postres</span
-              >
-              <span class="font-label-sm text-label-sm text-on-surface-variant text-[10px]"
-                >19 locales</span
-              >
-            </a>
-            <!-- Categoria 5 -->
-            <a
-              class="flex flex-col items-center p-3 rounded-xl bg-surface-container-lowest shrink-0 w-24 text-center shadow-sm active:scale-95 transition-transform"
-              href="#"
-            >
-              <div
-                class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-secondary mb-1.5"
-              >
-                <span class="material-symbols-outlined text-[24px]">account_balance</span>
-              </div>
-              <span
-                class="font-label-md text-label-md text-on-surface font-semibold truncate w-full"
-                >Cultura</span
-              >
-              <span class="font-label-sm text-label-sm text-on-surface-variant text-[10px]"
-                >24 lugares</span
-              >
-            </a>
-            <!-- Categoria 6 -->
-            <a
-              class="flex flex-col items-center p-3 rounded-xl bg-surface-container-lowest shrink-0 w-24 text-center shadow-sm active:scale-95 transition-transform"
-              href="#"
-            >
-              <div
-                class="w-12 h-12 rounded-full bg-primary-fixed-dim flex items-center justify-center text-on-primary-fixed-variant mb-1.5"
-              >
-                <span class="material-symbols-outlined text-[24px]">local_bar</span>
-              </div>
-              <span
-                class="font-label-md text-label-md text-on-surface font-semibold truncate w-full"
-                >Bares</span
-              >
-              <span class="font-label-sm text-label-sm text-on-surface-variant text-[10px]"
-                >15 locales</span
-              >
-            </a>
-          </div>
-        </section>
-        <!-- 3. Lugares Populares -->
-        <section class="flex flex-col gap-space-sm px-margin pb-space-lg">
-          <div class="flex items-center justify-between">
-            <div>
-              <h3 class="font-headline-sm text-headline-sm text-on-surface">Lugares Populares</h3>
-              <p class="font-label-sm text-label-sm text-on-surface-variant">
-                Concurridos y respaldados por locales
+</div>
+<div class="flex items-center justify-between mt-4 pt-3 bg-surface-container-low px-3 py-2 rounded-xl text-xs">
+<span class="font-semibold text-on-surface">120+ Puntos de interés</span>
+<span class="text-primary font-bold flex items-center gap-0.5">Explorar <span class="material-symbols-outlined text-[14px]">arrow_forward</span></span>
+</div>
+</div>
+</div>
+<!-- Zona 2: Huanchaco & Costa Marina -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group flex flex-col sm:flex-row h-auto sm:h-64">
+<div class="sm:w-1/2 h-48 sm:h-full relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Huanchaco beach in Trujillo Peru with traditional reed watercraft Caballitos de Totora lined up on the sandy shore against the Pacific sunset and pier silhouette. High contrast coastal photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAURw5yTwdnAvt27cWAyhmOdHwHwnhsTwvlaTqmYWbhlyju60A0eAbX3AQOMXitpLZWilPu5iwVWlSpcEpt1obZr1XcUje3Xpef7VmBILqfrWZmCjVLsxZ8wJ5xOnR-IWNrJ5x_q-ObcgQHb0cHh6QYHr-r3ja32DLvAkYZY7LJAx5tSGjAcKLcmJe2wDGcglYiK_qkqhFaaUAXHtZH7fuwZX6pMmLJjSub0nE35bOSgjxLvmRgR2cf')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-transparent via-transparent to-surface-container-lowest/20"></div>
+</div>
+<div class="sm:w-1/2 p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1.5 text-xs text-secondary font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">waves</span>
+<span>Balneario &amp; Olas</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mt-1 group-hover:text-primary transition-colors">Huanchaco &amp; Costa</h3>
+<p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                Milenarios caballitos de totora, surf de clase mundial, ceviche al pie del muelle y puestas de sol doradas.
               </p>
-            </div>
-            <span class="material-symbols-outlined text-primary text-[20px]">verified</span>
-          </div>
-          <!-- Cards container (vertical cards flow) -->
-          <div class="flex flex-col gap-3.5">
-            <!-- Card 1 -->
-            <div
-              class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm"
-            >
-              <div class="relative w-full h-44">
-                <img
-                  class="w-full h-full object-cover"
-                  data-alt="Appetizing traditional northern Peruvian ceviche platter served on artisanal pottery in Huanchaco beach restaurant, fresh sea bass pieces marinated in lime with bright red onion slices, choclo giant corn kernels, and sweet camote sweet potato, rustic wooden seaside table"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTHXGuSfG-dShdEJD8pcFLpiNwLeIWr3gaAuE0Ra31cLHczY0vipIAuD7QR_SoLeU1ZTJxcJT9t29G0EQ6a69Wi-A8-Wj3AOlvZAnuHNtiLz5kGyyM2jtgPpsDFYRNdb6gdEAwAFU2CC6A46fOD7kaFFIu6etFebaNNgV1tJePCP2tlU_vzE7C6aHQsWeVLkNidbc0NEyueIek5MPz264jvBqLz7D5SyVpn75T5CNYMs7NeMkx_Kfn"
-                />
-                <div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
-                  <span
-                    class="px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm flex items-center gap-1 shadow-sm"
-                  >
-                    <span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed animate-pulse"></span>
-                    Abierto ahora
-                  </span>
-                </div>
-                <button
-                  aria-label="Guardar en favoritos"
-                  class="favorite-btn absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-surface/90 text-on-surface flex items-center justify-center shadow-sm active:scale-90 transition-transform"
-                  type="button"
-                >
-                  <span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-                </button>
-              </div>
-              <div class="p-space-sm flex flex-col gap-1">
-                <div class="flex items-center justify-between">
-                  <span
-                    class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider"
-                    >Comida Norteña &amp; Marino</span
-                  >
-                  <div
-                    class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container-low text-on-surface font-label-sm text-label-sm font-bold"
-                  >
-                    <span
-                      class="material-symbols-outlined text-[14px] text-primary"
-                      style="font-variation-settings: 'FILL' 1"
-                      >star</span
-                    >
-                    4.9
-                  </div>
-                </div>
-                <h4 class="font-headline-sm text-headline-sm text-on-surface">
-                  Cevichería El Mochica
-                </h4>
-                <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
-                  Ceviche fresco con ají mochero y chicharrón de calamar crujiente frente al
-                  malecón.
-                </p>
-                <div
-                  class="flex items-center justify-between pt-1 font-label-sm text-label-sm text-on-surface-variant"
-                >
-                  <div class="flex items-center gap-1">
-                    <span class="material-symbols-outlined text-[15px] text-secondary"
-                      >location_on</span
-                    >
-                    <span>Huanchaco • Malecón Grau</span>
-                  </div>
-                  <span class="font-semibold text-on-surface">$$ • Moderado</span>
-                </div>
-              </div>
-            </div>
-            <!-- Card 2 -->
-            <div
-              class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm"
-            >
-              <div class="relative w-full h-44">
-                <img
-                  class="w-full h-full object-cover"
-                  data-alt="Interior of an elegant historic coffeehouse inside a colonial mansion in Trujillo Centro, high wooden beamed ceilings, antique tiled floors, warm brass chandelier light, marble coffee counter with espresso machine and freshly baked pastries"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHkygIGQ2hoSiis1ZpJ2W-n7NUyx5eBNRd5yuc4o4rHLowaJunot6qm6t_SX40hTdLidmi3_zWRB43EX1y1Jir84IoJvbi0zROXE3m94hbMmoisMWXnZdWVG89PwpPM4o4X0UT8U6PCz0tl1H0hHf04PEs0If6tZ4yxL3HF-VqWpZB3ZmnQulHNZGpjwV4Y6qVbRofkX443mYapng86MgUHw5OkQvSyDXUhopdqtL_ORO699B4i7Z0"
-                />
-                <div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
-                  <span
-                    class="px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm flex items-center gap-1 shadow-sm"
-                  >
-                    <span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed animate-pulse"></span>
-                    Abierto ahora
-                  </span>
-                </div>
-                <button
-                  aria-label="Guardar en favoritos"
-                  class="favorite-btn absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-surface/90 text-on-surface flex items-center justify-center shadow-sm active:scale-90 transition-transform"
-                  type="button"
-                >
-                  <span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-                </button>
-              </div>
-              <div class="p-space-sm flex flex-col gap-1">
-                <div class="flex items-center justify-between">
-                  <span
-                    class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider"
-                    >Café de Especialidad</span
-                  >
-                  <div
-                    class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container-low text-on-surface font-label-sm text-label-sm font-bold"
-                  >
-                    <span
-                      class="material-symbols-outlined text-[14px] text-primary"
-                      style="font-variation-settings: 'FILL' 1"
-                      >star</span
-                    >
-                    4.8
-                  </div>
-                </div>
-                <h4 class="font-headline-sm text-headline-sm text-on-surface">
-                  Café San Agustín 1945
-                </h4>
-                <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
-                  Filtrados de Jaén y Cajamarca acompañados de alfajores de manjarblanco de olla.
-                </p>
-                <div
-                  class="flex items-center justify-between pt-1 font-label-sm text-label-sm text-on-surface-variant"
-                >
-                  <div class="flex items-center gap-1">
-                    <span class="material-symbols-outlined text-[15px] text-secondary"
-                      >location_on</span
-                    >
-                    <span>Centro Histórico • Jr. Pizarro</span>
-                  </div>
-                  <span class="font-semibold text-on-surface">$$ • Moderado</span>
-                </div>
-              </div>
-            </div>
-            <!-- Card 3 -->
-            <div
-              class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm"
-            >
-              <div class="relative w-full h-44">
-                <img
-                  class="w-full h-full object-cover"
-                  data-alt="Intimate candlelit bistro courtyard inside a restored Trujillo republican house, lush potted palms, terracotta walls, modern dining tables set with wine glasses, warm ambient outdoor lighting under evening dusk"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuANk3ISxJj2ulISn0tLgrL_LUu2I_HNmkQ_K9mG4hHSNsRIOP6GzDlGx9higpALUupty7BhslJ-bJd0w8IvSNCHnOMj0efVxKfJrDbhCMbMjqfGGbBz-7WWOuyM2JnBtAz6Dj3vu5yapB1fT7i55IqmVcYQHDNSOdfn36go9KoeS9PhrqHFfRFJLpercbii89tuygR2_QHKwsMwIpVe_fGMHKxhAhMCIxWbCXcC6hCpLCUEKKjJIooG"
-                />
-                <div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
-                  <span
-                    class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1 shadow-sm"
-                  >
-                    <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-                    Abre a las 6:30 PM
-                  </span>
-                </div>
-                <button
-                  aria-label="Guardar en favoritos"
-                  class="favorite-btn absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-surface/90 text-on-surface flex items-center justify-center shadow-sm active:scale-90 transition-transform"
-                  type="button"
-                >
-                  <span class="material-symbols-outlined text-[18px]">bookmark_border</span>
-                </button>
-              </div>
-              <div class="p-space-sm flex flex-col gap-1">
-                <div class="flex items-center justify-between">
-                  <span
-                    class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider"
-                    >Cocina Fusión &amp; Coctelería</span
-                  >
-                  <div
-                    class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container-low text-on-surface font-label-sm text-label-sm font-bold"
-                  >
-                    <span
-                      class="material-symbols-outlined text-[14px] text-primary"
-                      style="font-variation-settings: 'FILL' 1"
-                      >star</span
-                    >
-                    4.7
-                  </div>
-                </div>
-                <h4 class="font-headline-sm text-headline-sm text-on-surface">
-                  Casona Orbegoso Bistro
-                </h4>
-                <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
-                  Tapas peruanas contemporáneas y cócteles de autor con macerados de pisco y frutas
-                  norteñas.
-                </p>
-                <div
-                  class="flex items-center justify-between pt-1 font-label-sm text-label-sm text-on-surface-variant"
-                >
-                  <div class="flex items-center gap-1">
-                    <span class="material-symbols-outlined text-[15px] text-secondary"
-                      >location_on</span
-                    >
-                    <span>Centro Histórico • Jr. Orbegoso</span>
-                  </div>
-                  <span class="font-semibold text-on-surface">$$$ • Premium</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- 4. Sección "¿Qué se te antoja hoy?" -->
-        <section class="flex flex-col gap-space-sm px-margin pb-space-lg">
-          <div>
-            <h3 class="font-headline-sm text-headline-sm text-on-surface">
-              ¿Qué se te antoja hoy?
+</div>
+<div class="flex items-center justify-between mt-4 pt-3 bg-surface-container-low px-3 py-2 rounded-xl text-xs">
+<span class="font-semibold text-on-surface">65+ Restaurantes y bares</span>
+<span class="text-primary font-bold flex items-center gap-0.5">Explorar <span class="material-symbols-outlined text-[14px]">arrow_forward</span></span>
+</div>
+</div>
+</div>
+<!-- Zona 3: Víctor Larco & California -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group flex flex-col sm:flex-row h-auto sm:h-64">
+<div class="sm:w-1/2 h-48 sm:h-full relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Modern upscale residential and commercial boulevard in Victor Larco Herrera Trujillo with palm-lined avenues, contemporary gastrobars, and boutique cafes in lush afternoon lighting. Crisp urban photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA6utoh8Sj9om8AgIwrGUEugktHilG574gPy-3xE4UMSxkNTTSw6lLgwdaStf_xVad7_PkrTLH5y_AU0ZccuPZq5QoVJ8_0WBBYw2AD2J0iihFNaUsmtUEad74-DcUJhxAWhWgX0lrYw2xrSS17w4IWmrXQIcm79oK-escM-Hy4uCh5SBPM6Z--jYbeiGqsABO_sVkzuZzQwWHpky928S7ATt7tG0BEKs5gLrkjpCYysgaLQLrGrRHP')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-transparent via-transparent to-surface-container-lowest/20"></div>
+</div>
+<div class="sm:w-1/2 p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1.5 text-xs text-tertiary font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">storefront</span>
+<span>Vanguardia Urbana</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mt-1 group-hover:text-primary transition-colors">Víctor Larco Herrera</h3>
+<p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                El polo gastronómico moderno en California y El Golf: bistrós contemporáneos, coctelería y boutiques.
+              </p>
+</div>
+<div class="flex items-center justify-between mt-4 pt-3 bg-surface-container-low px-3 py-2 rounded-xl text-xs">
+<span class="font-semibold text-on-surface">48+ Espacios gourmet</span>
+<span class="text-primary font-bold flex items-center gap-0.5">Explorar <span class="material-symbols-outlined text-[14px]">arrow_forward</span></span>
+</div>
+</div>
+</div>
+<!-- Zona 4: Campiña de Moche -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group flex flex-col sm:flex-row h-auto sm:h-64">
+<div class="sm:w-1/2 h-48 sm:h-full relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Scenic view of the green agricultural countryside in Campina de Moche with ancient adobe pyramids Huacas del Sol y de la Luna standing against the Cerro Blanco mountain in golden hour light. Archaeological landscape photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCE23Hj9c68TfCH2E-IqDsafK63Lurl06xOctXke32PkfSKtGiAztzcUBoDFmMqwYL2f55VCUDAuRgRhDO-Af9QnAKaWEY7psjKqCTGB5kKNFH6s_AOtFEUute2waltgoXHioGYHiIj3KMf8dXnsklBTqbcOxy-fWm7-dbsYCe37I2D4Wot69qP3K5UEtkc0nfSi0krRFoduad6OFGKkyqZe1sCqEFF_6GhNxTJfMVcUDBc7t2S44ax')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-transparent via-transparent to-surface-container-lowest/20"></div>
+</div>
+<div class="sm:w-1/2 p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1.5 text-xs text-primary font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">temple_buddhist</span>
+<span>Cultura Viva &amp; Huacas</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mt-1 group-hover:text-primary transition-colors">Campiña de Moche</h3>
+<p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+                Huacas del Sol y de la Luna, chicha de jora servida en poto tradicional y restaurantes campestres criollos.
+              </p>
+</div>
+<div class="flex items-center justify-between mt-4 pt-3 bg-surface-container-low px-3 py-2 rounded-xl text-xs">
+<span class="font-semibold text-on-surface">30+ Restaurantes campestres</span>
+<span class="text-primary font-bold flex items-center gap-0.5">Explorar <span class="material-symbols-outlined text-[14px]">arrow_forward</span></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. SECCIÓN EDITORIAL: JOYAS ESCONDIDAS (Relatos estilo revista urbana en 2 columnas) -->
+<section class="w-full max-w-7xl mx-auto px-margin py-20">
+<div class="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12 gap-4 pb-6 bg-surface-container-low p-6 rounded-2xl">
+<div>
+<div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest">
+<span class="material-symbols-outlined text-[18px]">auto_stories</span>
+<span>Historias de Barrio</span>
+</div>
+<h2 class="text-3xl font-bold tracking-tight text-on-surface mt-1">Joyas Escondidas de Trujillo</h2>
+<p class="text-xs text-on-surface-variant mt-1">Crónicas urbanas y relatos de la comunidad sobre rincones con memoria viva.</p>
+</div>
+<button class="px-4 py-2 bg-surface-container-lowest hover:bg-surface-container-high rounded-xl text-xs font-semibold text-on-surface transition-colors shadow-sm cursor-pointer">
+        Publicar una historia
+      </button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+<!-- Crónica 1 -->
+<article class="flex flex-col sm:flex-row gap-6 bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+<div class="sm:w-2/5 h-56 sm:h-auto rounded-xl overflow-hidden flex-shrink-0 relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="Interior of a traditional historic bookstore and cafe in Trujillo with floor to ceiling antique wooden bookshelves, sepia portraits of Peruvian poets like Cesar Vallejo, and copper coffee maker on the counter. Vintage literary atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDzPhhY_m3mpwP7kd4VK9ZSGB4A8l2RCOaGi8lT2QZtrAocmTzWnRAViEF_9fv5-32htPw5fxAXxuOyyHdU7kfPdVkeza1fzGGtWrRi7du_Fix6ZLzTphdYKcY-WiP7u7YKZA9X_y2N74rrm2Rb7FJ8HuGCQWJUEem9KyCcHYoHgzAtUl1wC_U7beGcACu4QjOiyAsCmfElNgcpyndoe-UjhIkyE1AUTTM8TA31b1KTxFjsgVB6862E')">
+</div>
+<span class="absolute top-2 left-2 bg-inverse-surface/80 text-surface-bright text-[10px] font-semibold px-2 py-0.5 rounded backdrop-blur-sm">Relato #42</span>
+</div>
+<div class="flex flex-col justify-between sm:w-3/5">
+<div>
+<div class="flex items-center gap-2 text-[11px] text-tertiary font-medium mb-1">
+<span>Por Lucía Cárdenas</span>
+<span>•</span>
+<span>Lectura 4 min</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface leading-snug hover:text-primary transition-colors cursor-pointer">
+              La tertulia que aún conversa: Tras los pasos de Vallejo en el Centro
             </h3>
-            <p class="font-label-sm text-label-sm text-on-surface-variant">
-              Clásicos gastronómicos que definen el paladar trujillano
+<p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+              En una estrecha callejuela paralela al jirón Independencia resiste una vieja librería y tostadora donde el Grupo Norte solía reunirse a debatir versos y política hace más de un siglo. Hoy el nieto del fundador sirve café de Chanchamayo entre primeras ediciones intocadas.
             </p>
-          </div>
-          <!-- Visual 2-column crave grid -->
-          <div class="grid grid-cols-2 gap-2.5">
-            <!-- Item 1 -->
-            <a
-              class="relative rounded-xl overflow-hidden aspect-[4/3] flex flex-col justify-end p-2.5 shadow-sm group active:scale-95 transition-transform"
-              href="#"
-            >
-              <div
-                class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-                data-alt="Close up food photo of authentic Peruvian Seco de Cabrito tender goat stew with cilantro sauce, served alongside creamy canary beans frijoles and white rice in a clay pot, garnished with red pepper strips"
-                style="
-                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAOKtnATumEH_HLEvDsMxnU_JO3o3L2S2BMZawTK7jp9jb6mb2K-a7vta5iz88PMS7sefeawHDGKlNuh7wKzYmoLIyfb2SQp9dN9N-KTgYNG6d0PkzE6OEFO26C45uFQOqqgLVYcphsg8UGrzrtOOWwFPZGi_uyQOUPgKD-98q0EI6R6cMa5sXfD5DijFda1srAS4JuiaCCu12LgeZBRth6FdX0xvxudYwlQscTiTR2v0XGlvIR8y2J');
-                "
-              ></div>
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-inverse-surface/30 to-transparent"
-              ></div>
-              <div class="relative z-10">
-                <span
-                  class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider block"
-                  >Tradición</span
-                >
-                <span
-                  class="font-headline-sm text-headline-sm text-surface-container-lowest leading-tight"
-                  >Seco de Cabrito</span
-                >
-              </div>
-            </a>
-            <!-- Item 2 -->
-            <a
-              class="relative rounded-xl overflow-hidden aspect-[4/3] flex flex-col justify-end p-2.5 shadow-sm group active:scale-95 transition-transform"
-              href="#"
-            >
-              <div
-                class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-                data-alt="Traditional Peruvian Shambar soup in a deep ceramic bowl, savory broth packed with wheat wheat berries, variety of Andean beans, tender pork skin, and hierba buena mint garnish, rich northern texture"
-                style="
-                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBAnR7owKAQKdDVxKej4aWBTv0TKY5TkMeiC95xkvLEjmga8oTWWqVxdJRxhMIkvdaZJOEJLngmiU56bolU8WVUB8gnBeS85FC-tZLg4lsvLQu6eWZw5HfUfqcAtWw6VIIyhi8RNg6vlSbjQyi25PQmcp2_h5XwFeVUzd8TyIzE_izKQ64TtZxbzEcOluami0NFup6Y00mTmbWW5zq8nQxJWfWcZPEZdAZPoPgtW6oMqGfCM_c1gND6');
-                "
-              ></div>
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-inverse-surface/30 to-transparent"
-              ></div>
-              <div class="relative z-10">
-                <span
-                  class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-wider block"
-                  >Lunes Trujillano</span
-                >
-                <span
-                  class="font-headline-sm text-headline-sm text-surface-container-lowest leading-tight"
-                  >Shámbar Caliente</span
-                >
-              </div>
-            </a>
-            <!-- Item 3 -->
-            <a
-              class="relative rounded-xl overflow-hidden aspect-[4/3] flex flex-col justify-end p-2.5 shadow-sm group active:scale-95 transition-transform"
-              href="#"
-            >
-              <div
-                class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-                data-alt="Plate of Peruvian fresh Ceviche a la Trujillana with vibrant aji mochero yellow chili pepper sauce, sweet glazed sweet potato, crispy toasted corn canchita, and fresh sea bass cubes"
-                style="
-                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4rTNu6IoxxEyJKIzIGMP4Pa9UY6Y3G0Wt6mFVK-3ix3hTg-wbAGP1xFY4lFP3XD5NT-2m_QSgjfkRU3t-Yd0z2zdDovO_UftIzx740S5o18XUbyPCDylF85YOkaNyAG6Bc7A3yBoy7U2IYsVT9j2uxAJQChYsGZ0J4zbRsOtIrhbEBdrq7HvpwBeGHDQwyngyet0nLr6RSjrbtEykTPfeofem-1NcIACIC7yRebaeNxkqoiskZXZg');
-                "
-              ></div>
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-inverse-surface/30 to-transparent"
-              ></div>
-              <div class="relative z-10">
-                <span
-                  class="font-label-sm text-label-sm text-tertiary-fixed uppercase tracking-wider block"
-                  >Con Ají Mochero</span
-                >
-                <span
-                  class="font-headline-sm text-headline-sm text-surface-container-lowest leading-tight"
-                  >Ceviche Norteño</span
-                >
-              </div>
-            </a>
-            <!-- Item 4 -->
-            <a
-              class="relative rounded-xl overflow-hidden aspect-[4/3] flex flex-col justify-end p-2.5 shadow-sm group active:scale-95 transition-transform"
-              href="#"
-            >
-              <div
-                class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-                data-alt="Artisanal Peruvian alfajores powdered with sugar filled with golden brown manjar blanco caramel next to a ceramic cup of pour over specialty coffee on a rustic wooden table"
-                style="
-                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7hPGT6veMtlREIT2CAD0JT0nycma9iXXFSC1XfLHoNDqRwBcqYeac3HnUktpgRSZ4TfYM8ustytAAkqFF_5P0IwuH0XqsU_OiQXZJMlcM741ILLIf0UicCdtetmjLDm6q8UxJrIeP25TgqceTuLOoxmeVQOJuHtZ_NzZlt4PVohfi2OnbKqcti23QTMbV9kMDIk4s_L-iSSQnZQSkgYbGPVq4Jpm4QjGEeYeYH2UJjt67G1e_wDPi');
-                "
-              ></div>
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-inverse-surface/30 to-transparent"
-              ></div>
-              <div class="relative z-10">
-                <span
-                  class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider block"
-                  >Media Tarde</span
-                >
-                <span
-                  class="font-headline-sm text-headline-sm text-surface-container-lowest leading-tight"
-                  >Café y Dulces</span
-                >
-              </div>
-            </a>
-          </div>
-        </section>
-        <!-- 5. Descubre por Zona -->
-        <section class="flex flex-col gap-space-sm px-margin pb-space-lg">
-          <div class="flex items-center justify-between">
-            <div>
-              <h3 class="font-headline-sm text-headline-sm text-on-surface">Descubre por Zona</h3>
-              <p class="font-label-sm text-label-sm text-on-surface-variant">
-                La personalidad de cada barrio trujillano
-              </p>
-            </div>
-          </div>
-          <!-- Horizontal scroll district cards -->
-          <div class="flex gap-3 overflow-x-auto no-scrollbar py-1">
-            <!-- Zona 1 -->
-            <a
-              class="flex flex-col rounded-xl overflow-hidden bg-surface-container-lowest w-52 shrink-0 shadow-sm active:scale-95 transition-transform"
-              href="#"
-            >
-              <div
-                class="bg-cover bg-center w-full h-28"
-                data-alt="Picturesque pedestrian street Paseo Pizarro in Trujillo Centro Peru, yellow colonial church towers in background, street lampposts, palm trees, and colorful restored neoclassical facades in morning sunlight"
-                style="
-                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAmHDEgScfkpdtYn96sMwZL8d2y0fit_2LGJoHixlz3CQ7q16dDEsVl0su2apsgRaANbw4JEAzjYgMzoirt2R2G5soxZOT2R4wH5J6zOfO4tWLwl_y3FvqanHraJs0BgARr__r_D1eMSQBt6qFtFzoL7CtCIUekkzOZelpuhq2v5tTdriIWko9GvU79jxO0usFXfL-lgsDGKInsRA3z7C05GXY6omLUrqtcJ4TJ2GUS1YsXSuDqhNyh');
-                "
-              ></div>
-              <div class="p-3 flex flex-col gap-0.5">
-                <span class="font-label-md text-label-md text-primary font-bold"
-                  >Patrimonio Vivo</span
-                >
-                <h5 class="font-headline-sm text-headline-sm text-on-surface">Centro Histórico</h5>
-                <span class="font-body-sm text-body-sm text-on-surface-variant"
-                  >Casonas, peatonales y café</span
-                >
-              </div>
-            </a>
-            <!-- Zona 2 -->
-            <a
-              class="flex flex-col rounded-xl overflow-hidden bg-surface-container-lowest w-52 shrink-0 shadow-sm active:scale-95 transition-transform"
-              href="#"
-            >
-              <div
-                class="bg-cover bg-center w-full h-28"
-                data-alt="Huanchaco beach shore with iconic caballitos de totora reed boats leaning against the sand, Pacific ocean gentle waves in background, seabirds flying under soft sunset skies"
-                style="
-                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA4fAu2Zp2gIBI7ZNAOtsmcBVYZsQYWyJudP8i5xX94uL6446redOqpfKAh24Z9BHzc6BAEsez32lrPm3QamWRVo8TRQueUGEXoJOTitgi0eRPwFydQ-ydjZibQqOQxxVCh4kNdNJbkwpt6nKxKnHit9tr83NIb7i1J13ObhGWkJzCVFx3uB4ovI523uSnBfv0L4ZxWIqZOmPKzbvtEG9wpMP5WceEPGTiBBU78y1Od5W4DNSFMgBYN');
-                "
-              ></div>
-              <div class="p-3 flex flex-col gap-0.5">
-                <span class="font-label-md text-label-md text-secondary font-bold"
-                  >Brisa y Mar</span
-                >
-                <h5 class="font-headline-sm text-headline-sm text-on-surface">
-                  Huanchaco &amp; Costa
-                </h5>
-                <span class="font-body-sm text-body-sm text-on-surface-variant"
-                  >Ceviches, surf y totoras</span
-                >
-              </div>
-            </a>
-            <!-- Zona 3 -->
-            <a
-              class="flex flex-col rounded-xl overflow-hidden bg-surface-container-lowest w-52 shrink-0 shadow-sm active:scale-95 transition-transform"
-              href="#"
-            >
-              <div
-                class="bg-cover bg-center w-full h-28"
-                data-alt="Modern upscale residential avenue in California and El Golf neighborhood in Trujillo Peru, tree-lined quiet boulevard with contemporary gastro pubs and cozy landscaped terraces"
-                style="
-                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYPbozDRgoVKyQQY9gDGjeSyMI1jlmzcoZPw8lbiatHlN6HL_bP3kovkidRusD4blVx3TWIG_fq58duUgXyu7X5Vsa3y2jH8ToK_qr_4rhk9ut70bCuGcZ7a8Hzxc7JsHg8U00YmbNmlaJpb_goDHUkK6zoRCFmoHWaJgokESIOuXZGL8ry4yD0XT0RtK9gXW-WaX8aZYg3-x2DzALHDgFRoS_IzGzUZ_LimzbIhz4UH-mYTFfZkhf');
-                "
-              ></div>
-              <div class="p-3 flex flex-col gap-0.5">
-                <span class="font-label-md text-label-md text-tertiary font-bold"
-                  >Gourmet &amp; Relax</span
-                >
-                <h5 class="font-headline-sm text-headline-sm text-on-surface">
-                  California &amp; El Golf
-                </h5>
-                <span class="font-body-sm text-body-sm text-on-surface-variant"
-                  >Coctelería y brunch de autor</span
-                >
-              </div>
-            </a>
-            <!-- Zona 4 -->
-            <a
-              class="flex flex-col rounded-xl overflow-hidden bg-surface-container-lowest w-52 shrink-0 shadow-sm active:scale-95 transition-transform"
-              href="#"
-            >
-              <div
-                class="bg-cover bg-center w-full h-28"
-                data-alt="Lush green countryside of Campiña de Moche, rustic adobe walls, ceramic artisanal pottery workshops, view toward ancient Huaca del Sol pyramid and flowering orchards under clear blue sky"
-                style="
-                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDhKUVYrd63Ixa9aYs4wFASYnQgWQTyE6EeEe-mgDGuuYk4bVodjz2goLrA50JgSPds6dieVh06HZ_LANa_j_H9U6wbJJzQFagzmIpr6RZPAruAlXx3RYlV8qFARHS7jFxdZYJ9W_qTRB74LehaM93ZrNk5Wv6RWHLpZh_Q-EZZXUrhiGVlwk3XTM36xwdNhX4BXZWoidcEsAoeesAiE2DXnPCD7q4J3XOBIdM8IfaHH1_CD37qse6k');
-                "
-              ></div>
-              <div class="p-3 flex flex-col gap-0.5">
-                <span class="font-label-md text-label-md text-primary font-bold"
-                  >Raíces Ancestrales</span
-                >
-                <h5 class="font-headline-sm text-headline-sm text-on-surface">Campiña de Moche</h5>
-                <span class="font-body-sm text-body-sm text-on-surface-variant"
-                  >Pato al ají y chicha de jora</span
-                >
-              </div>
-            </a>
-          </div>
-        </section>
-        <!-- 6. Favoritos de la Comunidad & Joyas Escondidas -->
-        <section class="flex flex-col gap-space-sm px-margin pb-space-lg">
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary text-[22px]">auto_stories</span>
-            <div>
-              <h3 class="font-headline-sm text-headline-sm text-on-surface">Joyas Escondidas</h3>
-              <p class="font-label-sm text-label-sm text-on-surface-variant">
-                Relatos y rincones elegidos por la comunidad
-              </p>
-            </div>
-          </div>
-          <!-- Editorial story cards -->
-          <div class="flex flex-col gap-3">
-            <!-- Story 1 -->
-            <article
-              class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-2.5 shadow-sm"
-            >
-              <div class="flex items-center justify-between">
-                <span
-                  class="px-2.5 py-0.5 rounded-full bg-surface-container-lowest text-primary font-label-sm text-label-sm font-bold uppercase tracking-wider"
-                >
-                  Dulcería Tradicional
-                </span>
-                <span class="font-label-sm text-label-sm text-on-surface-variant"
-                  >Lectura 2 min</span
-                >
-              </div>
-              <h4 class="font-headline-md text-headline-md text-on-surface font-display-md">
-                “El rincón de postres en almíbar frente a la Plazuela El Recreo”
-              </h4>
-              <p class="font-body-sm text-body-sm text-on-surface-variant">
-                Doña Carmela lleva más de 38 años batiendo manjar de leche fresca a fuego lento y
-                preparando el auténtico ranfañote trujillano con miel de caña de Chicama.
-              </p>
-              <div class="flex items-center justify-between pt-1 font-label-md text-label-md">
-                <span class="font-semibold text-secondary flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[16px]">pin_drop</span>
-                  Plazuela El Recreo #214
-                </span>
-                <a class="text-primary font-bold flex items-center" href="#">
-                  Ver historia
-                  <span class="material-symbols-outlined text-[16px] ml-0.5">north_east</span>
-                </a>
-              </div>
-            </article>
-            <!-- Story 2 -->
-            <article
-              class="p-space-md rounded-xl bg-secondary-container/40 flex flex-col gap-2.5 shadow-sm"
-            >
-              <div class="flex items-center justify-between">
-                <span
-                  class="px-2.5 py-0.5 rounded-full bg-surface-container-lowest text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider"
-                >
-                  Tostaduría Local
-                </span>
-                <span class="font-label-sm text-label-sm text-on-surface-variant"
-                  >Lectura 3 min</span
-                >
-              </div>
-              <h4 class="font-headline-md text-headline-md text-on-surface font-display-md">
-                “Granos de Jaén y San Ignacio tostados a diario en el corazón de Víctor Larco”
-              </h4>
-              <p class="font-body-sm text-body-sm text-on-surface-variant">
-                Un micro-laboratorio de café donde los baristas explican cada nota de cacao y
-                mandarina mientras preparan un Chemex perfecto en mesas de madera reciclada.
-              </p>
-              <div class="flex items-center justify-between pt-1 font-label-md text-label-md">
-                <span class="font-semibold text-secondary flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[16px]">pin_drop</span>
-                  Av. Larco 820
-                </span>
-                <a class="text-primary font-bold flex items-center" href="#">
-                  Ver historia
-                  <span class="material-symbols-outlined text-[16px] ml-0.5">north_east</span>
-                </a>
-              </div>
-            </article>
-          </div>
-        </section>
-        <!-- 7. Banner "Explora Trujillo en el Mapa" -->
-        <section class="px-margin pb-space-lg">
-          <div class="relative rounded-xl overflow-hidden shadow-sm bg-surface-container-highest">
-            <!-- Static Map pipeline using data-location -->
-            <div
-              class="w-full h-52 bg-cover bg-center relative"
-              data-location="Plaza de Armas de Trujillo, Trujillo, Peru"
-              style="
-                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBiNwlSJ9hDsdBBWUm_-bMPMFlrvGVnByMuCSRbb5OpIl4XhgCsMe7sPS3MOQgl0UBzZgJHpKeHW89fCj-Tman6K8vPRPSaSBmUo61ItS-A145k4rS_OGgXSk6yJXNMKlx-dzgH1zxzOnR56ZLb8RivEVtMeteh8WKIIMA9UVgX-geQiqik_361nJiaWhDdX74xD_8SG0XMKa3OWoSAoNpSlbjcRtviq9UR75LVVSIyf1k84TPqkYIR');
-              "
-            >
-              <div class="absolute inset-0 bg-surface/50 backdrop-blur-[2px]"></div>
-              <!-- Simulated interactive pin highlights -->
-              <div
-                class="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none"
-              >
-                <div
-                  class="px-2 py-0.5 rounded bg-surface shadow font-label-sm text-label-sm font-bold text-on-surface flex items-center gap-1"
-                >
-                  <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                  El Mochica
-                </div>
-                <span
-                  class="material-symbols-outlined text-primary text-[28px] -mt-1 drop-shadow"
-                  style="font-variation-settings: 'FILL' 1"
-                  >location_pin</span
-                >
-              </div>
-              <div
-                class="absolute top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none"
-              >
-                <div
-                  class="px-2 py-0.5 rounded bg-surface shadow font-label-sm text-label-sm font-bold text-on-surface flex items-center gap-1"
-                >
-                  <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-                  San Agustín
-                </div>
-                <span
-                  class="material-symbols-outlined text-secondary text-[28px] -mt-1 drop-shadow"
-                  style="font-variation-settings: 'FILL' 1"
-                  >location_pin</span
-                >
-              </div>
-              <!-- Floating action card over map -->
-              <div
-                class="absolute inset-x-3 bottom-3 p-3 rounded-lg bg-surface-container-lowest/95 shadow-md flex items-center justify-between"
-              >
-                <div class="flex flex-col pr-2">
-                  <span
-                    class="font-headline-sm text-headline-sm text-on-surface text-sm font-semibold"
-                    >120+ puntos en la ciudad</span
-                  >
-                  <span class="font-label-sm text-label-sm text-on-surface-variant"
-                    >Con rutas sugeridas a pie</span
-                  >
-                </div>
-                <button
-                  class="px-3.5 py-2 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md font-semibold flex items-center gap-1 shadow-sm shrink-0 active:scale-95 transition-transform"
-                >
-                  <span class="material-symbols-outlined text-[16px]">map</span>
-                  <span>Abrir mapa</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- 8. Pie de Página Informativo -->
-        <footer
-          class="mt-2 px-margin pt-space-md pb-space-lg bg-surface-container-low rounded-t-2xl flex flex-col gap-space-md"
-        >
-          <div class="flex flex-col gap-2">
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary text-[20px]">storefront</span>
-              <h5 class="font-headline-sm text-headline-sm text-on-surface">
-                ¿Tienes un local en Trujillo?
-              </h5>
-            </div>
-            <p class="font-body-sm text-body-sm text-on-surface-variant">
-              Suma tu restaurante, café o espacio cultural a la guía oficial y conecta con locales y
-              viajeros cada semana.
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-xs">
+<span class="text-on-surface-variant font-medium">Ubicación: Jr. San Martín 418</span>
+<a class="font-bold text-primary hover:underline flex items-center gap-1" href="#">
+              Leer crónica <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Crónica 2 -->
+<article class="flex flex-col sm:flex-row gap-6 bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+<div class="sm:w-2/5 h-56 sm:h-auto rounded-xl overflow-hidden flex-shrink-0 relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="Elderly Peruvian artisan handcrafting leather shoes and carved boots in a sunlit workshop in El Porvenir district Trujillo, surrounded by wooden lasts, vintage tools, and soft leather scraps. Documentary style portrait." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA4MKCRYdknX0vtxrdVJ4CoNERwRI-7I9jg3b02o_bKC7I7YYfBmQVbAeL-bM1Rp2D-d57RCE4F-oqLLsrTxttDOiDFyUWuZA0J8Qfj4Y2Fw-vMofwExhd2Jw-GJjqXpt_IO_tCyY1g8M71fqBK7UUelmUhhP0sN242urCAYA9ij1HUTwhKLXIIXG8xTnKCZzFSxHSF8x5NYqVLNFTLSkJvAGdZaYV3DHzTF0YwBS7ahbio5r07JSqZ')">
+</div>
+<span class="absolute top-2 left-2 bg-inverse-surface/80 text-surface-bright text-[10px] font-semibold px-2 py-0.5 rounded backdrop-blur-sm">Relato #43</span>
+</div>
+<div class="flex flex-col justify-between sm:w-3/5">
+<div>
+<div class="flex items-center gap-2 text-[11px] text-tertiary font-medium mb-1">
+<span>Por Martín Saldaña</span>
+<span>•</span>
+<span>Lectura 3 min</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface leading-snug hover:text-primary transition-colors cursor-pointer">
+              El último maestro del cuero fino en la capital del calzado
+            </h3>
+<p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+              Don Aurelio lleva 52 años cosiendo a mano botas de jinete de paso con moldes de caoba heredados. Su taller en El Porvenir no tiene letrero de neón ni página web, pero los criadores más exigentes del país viajan solo para encargarle un par que durará décadas.
             </p>
-            <a
-              class="self-start px-4 py-2 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md font-bold shadow-sm active:scale-95 transition-transform flex items-center gap-1.5 mt-1"
-              href="#"
-            >
-              <span>Sugerir un negocio local</span>
-              <span class="material-symbols-outlined text-[16px]">add_circle</span>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-xs">
+<span class="text-on-surface-variant font-medium">Ubicación: Calle Huáscar, El Porvenir</span>
+<a class="font-bold text-primary hover:underline flex items-center gap-1" href="#">
+              Leer crónica <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- 7. BANNER INTERACTIVO: MAPA & REGISTRO LOCAL -->
+<section class="w-full max-w-7xl mx-auto px-margin mb-16">
+<div class="relative rounded-3xl overflow-hidden bg-inverse-surface text-inverse-on-surface shadow-xl">
+<!-- Decoración de fondo sutil -->
+<div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-20 -top-20 w-96 h-96 rounded-full bg-secondary/20 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 p-8 sm:p-12 items-center">
+<!-- Contenido Izquierdo: Promoción del Mapa -->
+<div class="lg:col-span-7 flex flex-col gap-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container/20 text-primary-fixed text-xs font-semibold w-fit">
+<span class="material-symbols-outlined text-[16px]">map</span>
+<span>Geolocalización en Tiempo Real</span>
+</div>
+<h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
+            Explora Trujillo en el mapa interactivo
+          </h2>
+<p class="text-sm text-surface-dim leading-relaxed max-w-xl">
+            Filtra restaurantes con terraza, casonas con visitas guiadas, cajeros, estacionamientos y puntos artesanales cercanos a tu ubicación exacta con cálculo de rutas a pie.
+          </p>
+<!-- Métricas urbanas en fila -->
+<div class="grid grid-cols-3 gap-4 pt-2 max-w-md">
+<div class="bg-surface-container-highest/10 p-3 rounded-xl backdrop-blur-sm">
+<span class="text-2xl font-bold text-primary-fixed">340+</span>
+<p class="text-[11px] text-surface-dim uppercase font-semibold mt-0.5">Locales Mapeados</p>
+</div>
+<div class="bg-surface-container-highest/10 p-3 rounded-xl backdrop-blur-sm">
+<span class="text-2xl font-bold text-secondary-fixed">12</span>
+<p class="text-[11px] text-surface-dim uppercase font-semibold mt-0.5">Rutas Temáticas</p>
+</div>
+<div class="bg-surface-container-highest/10 p-3 rounded-xl backdrop-blur-sm">
+<span class="text-2xl font-bold text-tertiary-fixed">100%</span>
+<p class="text-[11px] text-surface-dim uppercase font-semibold mt-0.5">Acceso Gratuito</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-3 mt-4">
+<a class="px-6 py-3.5 bg-primary hover:bg-primary-fixed hover:text-on-primary-fixed text-on-primary font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-2 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-[18px]">explore</span>
+              Abrir Mapa Completo
             </a>
-          </div>
-          <!-- Divider alternative: soft tonal separation -->
-          <div class="h-px w-full bg-surface-container-highest"></div>
-          <div class="flex flex-col gap-2.5">
-            <div
-              class="flex flex-wrap gap-x-4 gap-y-1.5 font-label-md text-label-md text-on-surface-variant"
-            >
-              <a class="hover:text-primary transition-colors" href="#"
-                >Acerca de Descubre Trujillo</a
-              >
-              <a class="hover:text-primary transition-colors" href="#">Guía Gastronómica</a>
-              <a class="hover:text-primary transition-colors" href="#">Eventos &amp; Cultura</a>
-              <a class="hover:text-primary transition-colors" href="#">Políticas de Privacidad</a>
-            </div>
-            <div class="flex items-center justify-between text-on-surface-variant pt-2">
-              <span class="font-label-sm text-label-sm"
-                >Hecho con orgullo en el norte del Perú</span
-              >
-              <div class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-primary"></span>
-                <span class="font-label-sm text-label-sm font-semibold text-on-surface"
-                  >Trujillo, La Libertad</span
-                >
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
-      <script>
-        // Micro-interaction for bookmark / favorite buttons
-        document.querySelectorAll('.favorite-btn').forEach((btn) => {
-          btn.addEventListener('click', (e) => {
-            e.preventDefault()
-            const icon = btn.querySelector('.material-symbols-outlined')
-            if (icon.textContent.trim() === 'bookmark_border') {
-              icon.textContent = 'bookmark'
-              icon.style.fontVariationSettings = "'FILL' 1"
-              btn.classList.add('text-primary')
-            } else {
-              icon.textContent = 'bookmark_border'
-              icon.style.fontVariationSettings = "'FILL' 0"
-              btn.classList.remove('text-primary')
-            }
-          })
-        })
-      </script>
-    </main>
-    <nav
-      class="fixed bottom-0 w-full z-50 pb-safe bg-surface/95 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.04)]"
-      data-active-classes="text-primary font-semibold"
-    >
-      <div class="flex justify-around items-center h-16 px-space-xs">
-        <a
-          aria-current="page"
-          class="flex flex-col items-center justify-center min-w-[56px] h-12 gap-0.5 transition-all active:scale-95 text-primary font-semibold"
-          data-path="inicio"
-          href="#"
-          ><span class="material-symbols-outlined text-[22px]">home</span
-          ><span class="font-label-sm text-label-sm">Inicio</span></a
-        ><a
-          class="flex flex-col items-center justify-center min-w-[56px] h-12 gap-0.5 text-on-surface-variant hover:text-primary transition-all active:scale-95"
-          data-path="explorar"
-          href="#"
-          ><span class="material-symbols-outlined text-[22px]">explore</span
-          ><span class="font-label-sm text-label-sm">Explorar</span></a
-        ><a
-          class="flex flex-col items-center justify-center min-w-[56px] h-12 gap-0.5 text-on-surface-variant hover:text-primary transition-all active:scale-95"
-          data-path="categorias"
-          href="#"
-          ><span class="material-symbols-outlined text-[22px]">grid_view</span
-          ><span class="font-label-sm text-label-sm">Categorías</span></a
-        ><a
-          class="flex flex-col items-center justify-center min-w-[56px] h-12 gap-0.5 text-on-surface-variant hover:text-primary transition-all active:scale-95"
-          data-path="mapa-interactivo"
-          href="#"
-          ><span class="material-symbols-outlined text-[22px]">map</span
-          ><span class="font-label-sm text-label-sm">Mapa</span></a
-        ><a
-          class="flex flex-col items-center justify-center min-w-[56px] h-12 gap-0.5 text-on-surface-variant hover:text-primary transition-all active:scale-95"
-          data-path="favoritos"
-          href="#"
-          ><span class="material-symbols-outlined text-[22px]">bookmark</span
-          ><span class="font-label-sm text-label-sm">Favoritos</span></a
-        >
-      </div>
-    </nav>
-  </body>
-</html>
+<a class="px-5 py-3.5 bg-surface-container-highest/20 hover:bg-surface-container-highest/30 text-surface-bright font-semibold text-xs rounded-xl transition-colors flex items-center gap-2 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-[18px]">near_me</span>
+              Lugares Cerca de Mí
+            </a>
+</div>
+</div>
+<!-- Columna Derecha: Vista previa de Mapa y Tarjeta CTA 'Registra tu negocio' -->
+<div class="lg:col-span-5 flex flex-col gap-4">
+<!-- Vista previa de mapa estático interactiva -->
+<div class="relative rounded-2xl overflow-hidden shadow-lg h-52 group">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-location="Plaza de Armas Trujillo Peru" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDx6zCKBDTCQ0UhZTABpILnHGgZcUWqRaVwn_a-Jp1TwfCRg-5bPBcOq3h1iA5htn2CDcPTyEW61mMAdAx8qFYoaCH3Gv5qSRXmKv1AdPc-Npojraq2rv7nsXJ8dQXnvU8-JKBbYohotwKpFWeDRbiXUhbxgG-dIbNtCjnz0PvWhzZzANpQd7Tx9jAgjAH__QUJqt09hWm_slaiPHCNT_9WUcUQys5IfzCaHwgSZvSGrQOevodyU3-E')">
+</div>
+<!-- Overlay interactivo ficticio de marcadores en el mapa -->
+<div class="absolute inset-0 bg-inverse-surface/30 backdrop-blur-[1px] flex flex-col justify-between p-3 pointer-events-none">
+<div class="flex justify-between items-center">
+<span class="bg-surface-container-lowest text-on-surface text-[11px] font-bold px-2.5 py-1 rounded-lg shadow-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Trujillo Centro activo
+                </span>
+<span class="bg-inverse-surface/80 text-surface-bright text-[10px] px-2 py-0.5 rounded">GPS Listo</span>
+</div>
+<div class="flex justify-center">
+<span class="bg-primary text-on-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1 animate-bounce">
+<span class="material-symbols-outlined text-[16px]">location_on</span> 14 sitios alrededor
+                </span>
+</div>
+</div>
+</div>
+<!-- Callout de Registro Comercial -->
+<div class="bg-surface-container-lowest/10 backdrop-blur-md p-4 rounded-2xl flex items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">add_business</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-white">¿Tienes un local en Trujillo?</h4>
+<p class="text-[11px] text-surface-dim">Únete a la guía oficial sin costo inicial.</p>
+</div>
+</div>
+<a class="px-4 py-2 bg-primary-container text-on-primary-container font-bold text-xs rounded-xl hover:bg-primary-fixed transition-colors whitespace-nowrap cursor-pointer" href="#">
+              Registrar Negocio
+            </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-low mt-space-xl pt-space-xl pb-space-lg"><div class="w-full px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-lg mb-space-xl"><div class="lg:col-span-2 flex flex-col gap-space-sm pr-space-lg"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[18px]">explore</span></div><span class="text-base font-semibold text-on-surface">Descubre Trujillo</span></div><p class="text-xs text-on-surface-variant leading-relaxed">La guía oficial para explorar la Ciudad de la Eterna Primavera. Conoce su patrimonio cultural, centros arqueológicos, gastronomía marina y los mejores comercios locales.</p><div class="flex items-center gap-space-sm mt-space-xs"><span class="material-symbols-outlined text-tertiary text-[18px]">verified</span><span class="text-xs text-on-surface-variant font-medium">Iniciativa de Promoción y Cultura Turística</span></div></div><div class="flex flex-col gap-space-sm"><h3 class="text-xs font-semibold uppercase tracking-wider text-on-surface">Explorar</h3><ul class="flex flex-col gap-space-xs text-xs text-on-surface-variant"><li class="hover:text-on-surface transition-colors cursor-pointer">Centro Histórico</li><li class="hover:text-on-surface transition-colors cursor-pointer">Chan Chan &amp; Huacas</li><li class="hover:text-on-surface transition-colors cursor-pointer">Balneario de Huanchaco</li><li class="hover:text-on-surface transition-colors cursor-pointer">Ruta Gastronómica</li><li class="hover:text-on-surface transition-colors cursor-pointer">Eventos y Festivales</li></ul></div><div class="flex flex-col gap-space-sm"><h3 class="text-xs font-semibold uppercase tracking-wider text-on-surface">Negocios Locales</h3><ul class="flex flex-col gap-space-xs text-xs text-on-surface-variant"><li class="hover:text-on-surface transition-colors cursor-pointer">Registrar mi Local</li><li class="hover:text-on-surface transition-colors cursor-pointer">Panel de Comerciantes</li><li class="hover:text-on-surface transition-colors cursor-pointer">Guía de Publicidad</li><li class="hover:text-on-surface transition-colors cursor-pointer">Distintivo de Calidad</li><li class="hover:text-on-surface transition-colors cursor-pointer">Soporte a Empresas</li></ul></div><div class="flex flex-col gap-space-sm"><h3 class="text-xs font-semibold uppercase tracking-wider text-on-surface">Institucional</h3><ul class="flex flex-col gap-space-xs text-xs text-on-surface-variant"><li class="hover:text-on-surface transition-colors cursor-pointer">Acerca de Nosotros</li><li class="hover:text-on-surface transition-colors cursor-pointer">Prensa &amp; Noticias</li><li class="hover:text-on-surface transition-colors cursor-pointer">Políticas de Privacidad</li><li class="hover:text-on-surface transition-colors cursor-pointer">Términos del Servicio</li><li class="hover:text-on-surface transition-colors cursor-pointer">Canal de Contacto</li></ul></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md bg-surface-container px-space-md py-space-sm rounded-xl"><p class="text-xs text-on-surface-variant">© 2025 Descubre Trujillo. Todos los derechos reservados. Desarrollado con vocación cívica y cultural.</p><div class="flex items-center gap-space-md"><span class="text-xs font-medium text-on-surface-variant">Conectar:</span><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-on-surface-variant hover:text-primary cursor-pointer transition-colors">public</span><span class="material-symbols-outlined text-[18px] text-on-surface-variant hover:text-primary cursor-pointer transition-colors">share</span><span class="material-symbols-outlined text-[18px] text-on-surface-variant hover:text-primary cursor-pointer transition-colors">alternate_email</span><span class="material-symbols-outlined text-[18px] text-on-surface-variant hover:text-primary cursor-pointer transition-colors">location_city</span></div></div></div></div></footer></body></html>
