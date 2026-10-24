@@ -1,0 +1,1125 @@
+<!doctype html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+      name="viewport"
+    />
+    <meta content="mobile_stack" name="shell-type" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @layer base {
+        html,
+        body {
+          width: 100vw;
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        .pb-safe {
+          padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+        .pt-safe {
+          padding-top: env(safe-area-inset-top, 0px);
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'surface-container-low': '#f5f3f3',
+              'on-error': '#ffffff',
+              'inverse-primary': '#e5c457',
+              'on-primary-container': '#fffbff',
+              'primary-container': '#8c7201',
+              'on-surface': '#1b1c1c',
+              'on-background': '#1b1c1c',
+              'surface-tint': '#725c00',
+              outline: '#717785',
+              background: '#fbf9f8',
+              'inverse-surface': '#303031',
+              'surface-dim': '#dbdad9',
+              'surface-container-lowest': '#ffffff',
+              tertiary: '#5d5f31',
+              primary: '#6f5a00',
+              'secondary-fixed-dim': '#bad062',
+              'primary-fixed-dim': '#e5c457',
+              'on-secondary': '#ffffff',
+              'on-tertiary-fixed-variant': '#47491e',
+              'on-surface-variant': '#414753',
+              'on-primary-fixed-variant': '#564500',
+              'tertiary-fixed': '#e5e6ac',
+              secondary: '#546500',
+              'primary-fixed': '#ffe082',
+              'tertiary-fixed-dim': '#c8ca92',
+              'on-tertiary-fixed': '#1c1d00',
+              'secondary-container': '#d3ea78',
+              'on-secondary-fixed-variant': '#3f4c00',
+              'surface-bright': '#fbf9f8',
+              'surface-container-highest': '#e4e2e2',
+              'on-tertiary-container': '#fffbff',
+              surface: '#fbf9f8',
+              'on-primary-fixed': '#231b00',
+              error: '#ba1a1a',
+              'on-error-container': '#93000a',
+              'secondary-fixed': '#d6ed7b',
+              'inverse-on-surface': '#f2f0f0',
+              'on-secondary-fixed': '#181e00',
+              'outline-variant': '#c1c6d5',
+              'on-primary': '#ffffff',
+              'surface-variant': '#e4e2e2',
+              'on-tertiary': '#ffffff',
+              'on-secondary-container': '#586a00',
+              'surface-container': '#efeded',
+              'error-container': '#ffdad6',
+              'tertiary-container': '#757847',
+              'surface-container-high': '#e9e8e7'
+            },
+            borderRadius: { DEFAULT: '0.25rem', lg: '0.5rem', xl: '0.75rem', full: '9999px' },
+            spacing: {
+              'space-xs': '0.25rem',
+              'space-md': '1rem',
+              gutter: '1rem',
+              'margin-desktop': '3rem',
+              margin: '1rem',
+              'space-sm': '0.5rem',
+              'space-lg': '1.5rem',
+              'margin-tablet': '2rem',
+              'gutter-desktop': '1.5rem',
+              'space-xl': '2.5rem'
+            },
+            fontFamily: {
+              'display-md': ['Newsreader'],
+              'headline-lg-mobile': ['Newsreader'],
+              'label-lg': ['Plus Jakarta Sans'],
+              'display-lg-mobile': ['Newsreader'],
+              'headline-md': ['Newsreader'],
+              'label-sm': ['Plus Jakarta Sans'],
+              'label-md': ['Plus Jakarta Sans'],
+              'body-sm': ['Plus Jakarta Sans'],
+              'body-lg': ['Plus Jakarta Sans'],
+              'display-md-mobile': ['Newsreader'],
+              'display-lg': ['Newsreader'],
+              'headline-lg': ['Newsreader'],
+              'headline-sm': ['Newsreader'],
+              'body-md': ['Plus Jakarta Sans'],
+              headline: ['Inter'],
+              display: ['Inter'],
+              body: ['Inter'],
+              label: ['Inter']
+            },
+            fontSize: {
+              'display-md': [
+                '40px',
+                { lineHeight: '48px', letterSpacing: '-0.015em', fontWeight: '400' }
+              ],
+              'headline-lg-mobile': [
+                '26px',
+                { lineHeight: '32px', letterSpacing: '-0.01em', fontWeight: '500' }
+              ],
+              'label-lg': [
+                '14px',
+                { lineHeight: '20px', letterSpacing: '0.01em', fontWeight: '600' }
+              ],
+              'display-lg-mobile': [
+                '38px',
+                { lineHeight: '44px', letterSpacing: '-0.015em', fontWeight: '400' }
+              ],
+              'headline-md': ['24px', { lineHeight: '32px', fontWeight: '500' }],
+              'label-sm': [
+                '11px',
+                { lineHeight: '14px', letterSpacing: '0.04em', fontWeight: '700' }
+              ],
+              'label-md': [
+                '12px',
+                { lineHeight: '16px', letterSpacing: '0.025em', fontWeight: '600' }
+              ],
+              'body-sm': ['14px', { lineHeight: '20px', fontWeight: '400' }],
+              'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+              'display-md-mobile': [
+                '30px',
+                { lineHeight: '36px', letterSpacing: '-0.01em', fontWeight: '400' }
+              ],
+              'display-lg': [
+                '56px',
+                { lineHeight: '64px', letterSpacing: '-0.02em', fontWeight: '400' }
+              ],
+              'headline-lg': [
+                '32px',
+                { lineHeight: '40px', letterSpacing: '-0.01em', fontWeight: '500' }
+              ],
+              'headline-sm': ['20px', { lineHeight: '28px', fontWeight: '600' }],
+              'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }]
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"
+  >
+    <header
+      class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
+    >
+      <div class="h-16 px-gutter flex items-center justify-between">
+        <div class="flex items-center gap-space-xs">
+          <button
+            aria-label="Volver atrás"
+            class="w-11 h-11 -ml-2 flex items-center justify-center rounded-full text-on-surface hover:text-primary transition-colors"
+            onclick="history.back()"
+          >
+            <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+          </button>
+          <div class="flex items-center gap-space-xs">
+            <img
+              alt="Descubre Trujillo Logo"
+              class="h-8 w-auto object-contain"
+              src="https://lh3.googleusercontent.com/aida/AEtjO1WzssQuAIalGh8jeNvmdvrYp9f109vqlvQPNqGR-sDNdroDWwq2A6QpzCmUMgWmVeMI8tW8cRzRTF_02I5lbxPdy-w_cSmppuv3sOxZD9VblLDAc8dsiwYaZ1EcMgahUGDxy_llhRzrAGQbZF2UnBB38HnCG9D5MpUNyHigfvA5X-021zJJvnUKVWDukgCTsKyzXNzdKMTohdgv4oLCmW3A11ftT6fgaPdC4BsCKS3AO1wJCj2CM2j7DlY"
+            />
+            <h1 class="font-headline-sm text-headline-sm text-on-surface truncate max-w-[170px]">
+              Detalle De Lugar
+            </h1>
+          </div>
+        </div>
+        <div class="flex items-center gap-space-xs">
+          <button
+            aria-label="Guardar lugar"
+            class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors"
+          >
+            <span class="material-symbols-outlined text-[22px]">bookmark_border</span></button
+          ><button
+            aria-label="Compartir"
+            class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors"
+          >
+            <span class="material-symbols-outlined text-[22px]">share</span>
+          </button>
+          <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-1">
+            <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="flex flex-col relative w-full pt-16 bg-surface min-h-screen pb-safe">
+      <div class="flex flex-col w-full pb-24">
+        <!-- Dynamic Image Carousel Section -->
+        <section class="relative w-full overflow-hidden bg-surface-container">
+          <div
+            class="flex w-full overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar"
+            id="carouselTrack"
+            style="scroll-snap-type: x mandatory"
+          >
+            <!-- Slide 1: Patio Colonial -->
+            <div class="w-full flex-shrink-0 snap-center relative aspect-[4/3] max-h-[380px]">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="Stunning colonial courtyard of a restored Peruvian casona in Trujillo, terracotta red tiled floors, lush green potted palms and ferns, warm sunlit stone arches, wooden carved balcony, warm northern light ambiance."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2IGcoibAPIukeDXE2tOz_xyqH8CtP7ml_euly2GFJelpLHPKFdhrOeE0gpAr5dyDKz8DofVukr4NqHm7MZy0_FM3Gi6od3Tj3b7JPAoH9MEM49ZD46YhvyaP8YeUQSIvHuXRbw2laM4-Mfh5gNcystdMlk-viNk6HndFMDj1hRIwY_dRYHxVtP5bxbS1YOhqL9uLKbaGyQepjNMlA7fnxYw1TdVxLRz1rZYu_ADzx4A33u3Giwrp3"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-black/30"
+              ></div>
+            </div>
+            <!-- Slide 2: Seco de Cabrito -->
+            <div class="w-full flex-shrink-0 snap-center relative aspect-[4/3] max-h-[380px]">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="Plated traditional Peruvian dish Seco de Cabrito with canary beans, seasoned rice and fragrant coriander reduction sauce served in an artisanal clay dish, warm warm natural light, rustic chic restaurant setting."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5nwLpgFIe2XeYKgn_WvYdEAGeZU3dMyT330PJUb4Oz0U--tILItZCY7wdenlSRrTjM-IhWF-EFyWW3wOiMD2NBOCtLODaKEc_GZJbcjC5e7QTMxEOmqWwp344CAcPBePN6QAjjiliV5Ce3CCTL-CzHve62HSc5sjmcnmAhS55_tVgMXqSRfBWjdYnw_l6lMdMTd_9cBZjVq_ngJjqJF9tB11yB2TAukQmVghWZrgVN_RCROAFGMqx"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-black/30"
+              ></div>
+            </div>
+            <!-- Slide 3: Ceviche Norteño -->
+            <div class="w-full flex-shrink-0 snap-center relative aspect-[4/3] max-h-[380px]">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="Northern Trujillo style fresh ceviche with pristine white fish fillets, sliced red onions, aji limo, crisp zarandaja beans, sweet potato and toasted choclo corn, vibrant coastal culinary photography."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhV-IPWSbUIKH-Ig5JjpQvulRo_Nwv54MrbZ_ohPZUK1B5NY7T8X56yHIJS_0LEYY-kdLsOALnbkXZIsWNSzi48i9JqrA92DLGXUN_E81DWj-IaMrrAeuY4BMx52A6VYypgkU2wOgU26h7L6Ale7RBi9Pjh6rz6gTsu3-QKcxgd0PurVLdMs__QUvA4W2SMByVz2T4RFSfFTrWUSbd8cibIlNo9wDn9RIS_GGLd75cUaymDz0q5PGZ"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-black/30"
+              ></div>
+            </div>
+            <!-- Slide 4: Shámbar -->
+            <div class="w-full flex-shrink-0 snap-center relative aspect-[4/3] max-h-[380px]">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="Authentic traditional Shámbar soup of Trujillo Peru served in a deep glazed terracotta bowl, featuring smoked pork, wheat berries, and aromatic herbs, rich rustic culinary table."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqvQQEbFhLphFDDaMcxSOV4cBgZcGTsZ9cLE1vT3gVRiHUJ-ChhbOtWht8QqJWjtE88uwJ-i3--c1wmHw_D-11Qd_1PO80zkyAIgrwaP35f4xAQILPcrMTOWnMphTGDRUwfYK-JYTBvNq5bTAn6BZzWZMytQgXPAfoLdzkR5pjxTjxkpAtrpWc62aywYGx0zHrLcaWcLbPUiIkZnOkHPNE5gVMlZgtHRbldtFQ8ts0eOrMoL5wDO98"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-black/30"
+              ></div>
+            </div>
+            <!-- Slide 5: King Kong Artesanal -->
+            <div class="w-full flex-shrink-0 snap-center relative aspect-[4/3] max-h-[380px]">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="Artisanal Peruvian King Kong dessert sliced displaying crisp biscuit layers filled with rich dulce de leche manjar blanco, pineapple jam, and peanut paste on a hand-carved wooden board."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDD0pzuM6nokMJZCcSJ-5TLlaurID21VsR4xjBF5tcf_bjbCLVWriEY-Kv_Jzl-ezGjMFP97rE5CAa0iY8U7ZS_ORBZrsLQMBh7jIQYet0KVf-3bf549y7jmo9-vTzu0FrvM0C9ZUgwzC2-GK_uuW3IlGyhlj7J1xC3GN7R-gBMZ7vh96anLB30jtJ3uxZE_TTn3Q6nML4f8o39kgkiDFag6ZMKGNEr7SvQYw4TN4ocNq9WYr_kre6"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-black/30"
+              ></div>
+            </div>
+          </div>
+          <!-- Floating Quick Overlay Badges & Counter -->
+          <div
+            class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none"
+          >
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md shadow-sm text-secondary font-label-sm text-label-sm uppercase tracking-wider"
+            >
+              <span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+              Casona Virreinal
+            </span>
+            <div class="flex items-center gap-2">
+              <button
+                class="pointer-events-auto w-10 h-10 rounded-full bg-surface-container-lowest/90 backdrop-blur-md shadow-sm flex items-center justify-center text-primary active:scale-95 transition-all"
+                id="favBtn"
+                onclick="toggleFavorite()"
+              >
+                <span
+                  class="material-symbols-outlined text-[20px]"
+                  id="favIcon"
+                  style="font-variation-settings: 'FILL' 1"
+                  >favorite</span
+                >
+              </button>
+              <span
+                class="px-2.5 py-1 rounded-full bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-md text-label-md tracking-wider"
+                id="photoBadge"
+              >
+                1 / 5
+              </span>
+            </div>
+          </div>
+        </section>
+        <!-- Title & Core Information Sheet -->
+        <section class="px-gutter pt-space-lg pb-space-md bg-surface flex flex-col gap-space-sm">
+          <div class="flex flex-wrap items-center gap-2">
+            <span
+              class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm"
+            >
+              Gastronomía &amp; Tradición
+            </span>
+            <span
+              class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm"
+            >
+              <span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+              Abierto ahora • Cierra 11:00 PM
+            </span>
+          </div>
+          <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-1">
+            Casona &amp; Tradición Mochica
+          </h1>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Restaurante de Comida Criolla y Marina Norteña
+          </p>
+          <!-- Rating & Verification Row -->
+          <div class="flex items-center flex-wrap gap-2 pt-1 pb-1">
+            <div class="flex items-center gap-1 bg-surface-container px-2.5 py-1 rounded-lg">
+              <span class="font-label-lg text-label-lg text-on-surface font-bold">4.9</span>
+              <div class="flex text-primary">
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: 'FILL' 1"
+                  >star</span
+                >
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: 'FILL' 1"
+                  >star</span
+                >
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: 'FILL' 1"
+                  >star</span
+                >
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: 'FILL' 1"
+                  >star</span
+                >
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: 'FILL' 1"
+                  >star</span
+                >
+              </div>
+            </div>
+            <span class="font-body-sm text-body-sm text-secondary">
+              (320 reseñas verificadas)
+            </span>
+            <span class="text-outline-variant font-body-sm">•</span>
+            <span class="font-label-md text-label-md text-on-surface-variant font-medium">
+              $$ (S/ 35 - S/ 65 p.p.)
+            </span>
+          </div>
+          <!-- Location details -->
+          <div class="flex items-start gap-2 pt-2 text-secondary">
+            <span class="material-symbols-outlined text-[20px] text-primary flex-shrink-0 mt-0.5"
+              >location_on</span
+            >
+            <span class="font-body-sm text-body-sm text-on-surface-variant">
+              Jr. Independencia 465, Centro Histórico de Trujillo (a 1.5 cuadras de la Plaza de
+              Armas)
+            </span>
+          </div>
+        </section>
+        <!-- Quick Instant Action Grid -->
+        <section class="px-gutter py-space-sm grid grid-cols-2 gap-space-xs">
+          <button
+            class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm active:scale-[0.98] transition-all"
+            onclick="bookTable()"
+          >
+            <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+            Reservar mesa
+          </button>
+          <a
+            class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-surface-container-high text-on-surface font-label-lg text-label-lg active:scale-[0.98] transition-all"
+            href="#carta-menu"
+          >
+            <span class="material-symbols-outlined text-[20px] text-secondary"
+              >restaurant_menu</span
+            >
+            Ver Carta
+          </a>
+          <a
+            class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-surface-container text-secondary font-label-md text-label-md active:scale-[0.98] transition-all"
+            href="tel:+5144245890"
+          >
+            <span class="material-symbols-outlined text-[18px]">call</span>
+            (044) 245-890
+          </a>
+          <button
+            class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-surface-container text-secondary font-label-md text-label-md active:scale-[0.98] transition-all"
+            onclick="sharePlace()"
+          >
+            <span class="material-symbols-outlined text-[18px]">share</span>
+            Compartir
+          </button>
+        </section>
+        <!-- Editorial Narrative: Acerca del Lugar -->
+        <section class="px-gutter py-space-md">
+          <div
+            class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm"
+          >
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-[22px]">history_edu</span>
+              <h2 class="font-headline-sm text-headline-sm text-on-surface">
+                Acerca de este lugar
+              </h2>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Erguida sobre los cimientos de una señorial casona virreinal de techos altos y patio
+              empedrado,
+              <strong class="text-on-surface font-medium">Casona &amp; Tradición Mochica</strong>
+              rinde homenaje a los sabores auténticos de La Libertad desde hace más de tres décadas.
+            </p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Cada preparación rescata el uso de ingredientes nativos del fértil valle de Moche:
+              ajíes secados al sol de la costa, culantro silvestre y pescados frescos seleccionados
+              diariamente en las caletas de Huanchaco. Un refugio donde la arquitectura y el deleite
+              conviven en calma.
+            </p>
+            <!-- Curated Quote Accent -->
+            <div class="mt-2 p-space-md rounded-lg bg-surface-container-low flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary text-[24px]">format_quote</span>
+              <p class="font-display-md-mobile text-body-md italic text-on-surface">
+                “El aroma al aderezo de chicha de jora y culantro te transporta a los fogones
+                ancestrales del norte.”
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- Visual Specialty Chips -->
+        <section class="px-gutter py-space-sm flex flex-col gap-space-sm" id="carta-menu">
+          <div class="flex items-center justify-between">
+            <h2 class="font-headline-sm text-headline-sm text-on-surface">
+              Especialidades de la Casa
+            </h2>
+            <span
+              class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider"
+              >Imprescindibles</span
+            >
+          </div>
+          <div class="grid grid-cols-1 gap-space-xs">
+            <!-- Special 1 -->
+            <div
+              class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-space-md"
+            >
+              <div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+                <img
+                  class="w-full h-full object-cover"
+                  data-alt="Traditional Peruvian Seco de Cabrito braised tender goat with creamy canary beans on traditional ceramic plate close-up warm ambient light."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbfyR6SEen4NS9XBaV6mK88epYOEQasAdew2KAxgQbCirsEO0rm3gKssboGSNdDaqWlZHWMpDSP44ck_dqm1OCJR_In6YeYL1XxYHXVO3qF266JrE9JoaDXLo7I72Gwj9xnDEQ3y1L1XulrxfL2s_r7RQJmNdExX8Jvtv7AfFFgCoz00x4eoYi4CKQLtcD4OejQa7EYzBSJd5Cl2t7lL2X5vy36zEdRvhLFj3J90PCP6kze9vCDxk8"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-label-lg text-label-lg text-on-surface truncate">
+                    Seco de Cabrito Norteño
+                  </h3>
+                  <span class="font-label-md text-label-md font-bold text-primary">S/ 48.00</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+                  Macerado en chicha de jora, con frejoles cremosos y yuca.
+                </p>
+                <span
+                  class="inline-block mt-1 px-2 py-0.5 rounded-full bg-primary-fixed font-label-sm text-label-sm text-on-primary-fixed-variant"
+                  >Plato Insignia</span
+                >
+              </div>
+            </div>
+            <!-- Special 2 -->
+            <div
+              class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-space-md"
+            >
+              <div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+                <img
+                  class="w-full h-full object-cover"
+                  data-alt="Fresh Peruvian ceviche trujillano garnished with zarandaja beans, red onions and sweet potato on white artisanal plate."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx67NR2sdXuAXxrr9kIMqJ4tHtPpcFuQ-cxBkHTQCGZEu1fgK1XFkN3DdRmTj69LSo1wEjGMyR8grJCKAZF7TtIjBHHeOpsabztjMO97dSoweB82lVQvVDkqv_4yEJdAirM7g9WC4llCGp83tO8KZDj-ZBC2xJkK6TfJdVippPtubo_pjkumeg1H4BULSWC_rElbrXCl_LEbpep6V-JgjT_d-jspkk27yB27RNQuGdARfAF7pnFpde"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-label-lg text-label-lg text-on-surface truncate">
+                    Ceviche Trujillano Clásico
+                  </h3>
+                  <span class="font-label-md text-label-md font-bold text-primary">S/ 44.00</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+                  Pesca del día de Huanchaco, zarandaja, ají mochero y chicha.
+                </p>
+                <span
+                  class="inline-block mt-1 px-2 py-0.5 rounded-full bg-secondary-container font-label-sm text-label-sm text-on-secondary-container"
+                  >Costero</span
+                >
+              </div>
+            </div>
+            <!-- Special 3 -->
+            <div
+              class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-space-md"
+            >
+              <div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+                <img
+                  class="w-full h-full object-cover"
+                  data-alt="Hearty Shambar soup with smoked pork skin, wheat kernels and chickpeas in traditional earthenware bowl with hierbabuena."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG2saTe7d0RA0AQ_SaEzF_RYoQGn_yT_M924tc8OPSPAieU8epwZrq6C55ZqsTnIVpDmcFi6ABo6keSqHgyuqyRGxRN8p_bC2HL2orxrcv9XDdfbjWBeyL20fJWs-fzgtfacCqc1pKzDeK-HZpoMxqHULAPGIviKljpiiE9fYFIIE0zQNP9h5QI1TV3BcdqOMIEqktvJV7GMAoJkWcEzMd7EBHpujwZ1_x1nJO1O0ITgjgfMF4LLEp"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-label-lg text-label-lg text-on-surface truncate">
+                    Shámbar Tradicional
+                  </h3>
+                  <span class="font-label-md text-label-md font-bold text-primary">S/ 36.00</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+                  Sopa de trigo, pellejito de chancho y hierbabuena (Especial de Lunes).
+                </p>
+                <span
+                  class="inline-block mt-1 px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-secondary"
+                  >Tradición de Lunes</span
+                >
+              </div>
+            </div>
+            <!-- Special 4 -->
+            <div
+              class="p-space-sm rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-space-md"
+            >
+              <div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+                <img
+                  class="w-full h-full object-cover"
+                  data-alt="Peruvian Causa en Lapa topped with shredded crab meat, avocado slices and yellow chili paste garnish."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2Az6Vo_7xS0HZKYLN75_0hQ5QamPtSXMbu_R76-Qoa-J7te5VIo0JKRg1D8PH5N4eRwF3JF6CYAZUWGa820C9eVfCZbYNkF3VgTIVTbvwVkFGMJRc4Xz_SBJvVq3hE8H9MxXRsTlAuYdTIcnnJkqlAXoeogFo7y4f6M-jBgczBHGMMrOkoYMzbW7QpR3LhRow11WPIPanCYyV9Zn6dG71GjKrDHRzmrWLZwb_9fh9yj-_rTc0MFnq"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-label-lg text-label-lg text-on-surface truncate">
+                    Causa en Lapa
+                  </h3>
+                  <span class="font-label-md text-label-md font-bold text-primary">S/ 38.00</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+                  Papa amarilla norteña, pulpa de cangrejo y palta de Huarmey.
+                </p>
+                <span
+                  class="inline-block mt-1 px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-secondary"
+                  >Entrada</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Interactive Schedule Section -->
+        <section class="px-gutter py-space-md">
+          <div
+            class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm"
+          >
+            <div
+              class="flex items-center justify-between cursor-pointer"
+              onclick="toggleSchedule()"
+            >
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-[22px]">schedule</span>
+                <div>
+                  <h2 class="font-headline-sm text-headline-sm text-on-surface">
+                    Horarios de Atención
+                  </h2>
+                  <p
+                    class="font-label-md text-label-md text-tertiary flex items-center gap-1 font-semibold"
+                  >
+                    <span class="w-2 h-2 rounded-full bg-tertiary"></span> Hoy abierto: 12:00 PM –
+                    11:00 PM
+                  </p>
+                </div>
+              </div>
+              <span
+                class="material-symbols-outlined text-secondary transition-transform"
+                id="schedArrow"
+                >expand_more</span
+              >
+            </div>
+            <div class="flex flex-col gap-2 pt-2 transition-all" id="scheduleDetails">
+              <div
+                class="flex items-center justify-between py-1.5 px-3 rounded-lg bg-tertiary-fixed/30 text-on-surface"
+              >
+                <span class="font-label-md text-label-md font-bold flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[16px] text-tertiary"
+                    >check_circle</span
+                  >
+                  Hoy (Lunes - Día del Shámbar)
+                </span>
+                <span class="font-label-md text-label-md font-bold text-tertiary"
+                  >12:00 PM - 11:00 PM</span
+                >
+              </div>
+              <div
+                class="flex items-center justify-between py-1 px-3 text-on-surface-variant font-body-sm text-body-sm"
+              >
+                <span>Martes a Jueves</span>
+                <span>12:00 PM - 10:30 PM</span>
+              </div>
+              <div
+                class="flex items-center justify-between py-1 px-3 text-on-surface-variant font-body-sm text-body-sm"
+              >
+                <span>Viernes y Sábado</span>
+                <span>12:00 PM - 11:30 PM</span>
+              </div>
+              <div
+                class="flex items-center justify-between py-1 px-3 text-on-surface-variant font-body-sm text-body-sm"
+              >
+                <span>Domingo</span>
+                <span>11:30 AM - 06:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Amenities & Services -->
+        <section class="px-gutter py-space-sm flex flex-col gap-space-sm">
+          <h2 class="font-headline-sm text-headline-sm text-on-surface">
+            Servicios &amp; Comodidades
+          </h2>
+          <div class="grid grid-cols-3 gap-2">
+            <div
+              class="p-3 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col items-center text-center gap-1"
+            >
+              <span class="material-symbols-outlined text-primary text-[24px]">wifi</span>
+              <span class="font-label-sm text-label-sm text-on-surface">Wifi gratis</span>
+            </div>
+            <div
+              class="p-3 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col items-center text-center gap-1"
+            >
+              <span class="material-symbols-outlined text-primary text-[24px]">contactless</span>
+              <span class="font-label-sm text-label-sm text-on-surface">Yape / Plin / Tarj.</span>
+            </div>
+            <div
+              class="p-3 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col items-center text-center gap-1"
+            >
+              <span class="material-symbols-outlined text-primary text-[24px]">accessible</span>
+              <span class="font-label-sm text-label-sm text-on-surface">Accesible</span>
+            </div>
+            <div
+              class="p-3 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col items-center text-center gap-1"
+            >
+              <span class="material-symbols-outlined text-primary text-[24px]">mode_fan</span>
+              <span class="font-label-sm text-label-sm text-on-surface">Patio ventilado</span>
+            </div>
+            <div
+              class="p-3 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col items-center text-center gap-1"
+            >
+              <span class="material-symbols-outlined text-primary text-[24px]">meeting_room</span>
+              <span class="font-label-sm text-label-sm text-on-surface">Salón privado</span>
+            </div>
+            <div
+              class="p-3 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col items-center text-center gap-1"
+            >
+              <span class="material-symbols-outlined text-primary text-[24px]">pets</span>
+              <span class="font-label-sm text-label-sm text-on-surface">Pet Friendly</span>
+            </div>
+          </div>
+        </section>
+        <!-- Location & Interactive Map Preview -->
+        <section class="px-gutter py-space-md flex flex-col gap-space-sm">
+          <div class="flex items-center justify-between">
+            <h2 class="font-headline-sm text-headline-sm text-on-surface">Ubicación</h2>
+            <span class="font-label-md text-label-md text-secondary">Centro Histórico</span>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden shadow-sm bg-surface-container">
+            <div
+              class="w-full h-48 bg-cover bg-center"
+              data-location="Jr. Independencia 465, Trujillo, Peru"
+              style=""
+            ></div>
+            <!-- Overlaid Map Card -->
+            <div
+              class="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-surface-container-lowest/95 backdrop-blur-md shadow-md flex items-center justify-between"
+            >
+              <div class="flex items-center gap-2.5 min-w-0 pr-2">
+                <div
+                  class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary flex-shrink-0"
+                >
+                  <span class="material-symbols-outlined text-[18px]">location_on</span>
+                </div>
+                <div class="truncate">
+                  <p class="font-label-md text-label-md text-on-surface truncate font-semibold">
+                    Jr. Independencia 465
+                  </p>
+                  <p class="font-label-sm text-label-sm text-on-surface-variant truncate">
+                    A 180m del Palacio Municipal
+                  </p>
+                </div>
+              </div>
+              <button
+                class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-secondary text-on-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1 active:scale-95 transition-transform"
+                onclick="openExternalMaps()"
+              >
+                <span>Abrir</span>
+                <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!-- Ratings Breakdown & Community Reviews -->
+        <section class="px-gutter py-space-md flex flex-col gap-space-md">
+          <div class="flex items-center justify-between">
+            <div>
+              <h2 class="font-headline-sm text-headline-sm text-on-surface">
+                Opiniones de la Comunidad
+              </h2>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                Calificación basada en 320 comensales
+              </p>
+            </div>
+            <div class="text-right">
+              <span class="font-display-md-mobile text-display-md-mobile text-primary font-bold"
+                >4.9</span
+              >
+              <span class="font-label-sm text-label-sm text-secondary block">de 5.0</span>
+            </div>
+          </div>
+          <!-- Rating Breakdown Progress -->
+          <div
+            class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-xs"
+          >
+            <!-- Row 1: Comida -->
+            <div class="flex items-center gap-3">
+              <span class="font-label-sm text-label-sm text-on-surface w-20">Comida</span>
+              <div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+                <div class="h-full bg-primary rounded-full" style="width: 100%"></div>
+              </div>
+              <span class="font-label-sm text-label-sm text-on-surface font-semibold w-6 text-right"
+                >5.0</span
+              >
+            </div>
+            <!-- Row 2: Servicio -->
+            <div class="flex items-center gap-3">
+              <span class="font-label-sm text-label-sm text-on-surface w-20">Servicio</span>
+              <div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+                <div class="h-full bg-primary rounded-full" style="width: 96%"></div>
+              </div>
+              <span class="font-label-sm text-label-sm text-on-surface font-semibold w-6 text-right"
+                >4.8</span
+              >
+            </div>
+            <!-- Row 3: Ambiente -->
+            <div class="flex items-center gap-3">
+              <span class="font-label-sm text-label-sm text-on-surface w-20">Ambiente</span>
+              <div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+                <div class="h-full bg-primary rounded-full" style="width: 98%"></div>
+              </div>
+              <span class="font-label-sm text-label-sm text-on-surface font-semibold w-6 text-right"
+                >4.9</span
+              >
+            </div>
+          </div>
+          <!-- Featured Reviews List -->
+          <div class="flex flex-col gap-space-sm">
+            <!-- Review 1 -->
+            <div
+              class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-2"
+            >
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div
+                    class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-label-md"
+                  >
+                    MR
+                  </div>
+                  <div>
+                    <p class="font-label-md text-label-md font-bold text-on-surface">
+                      Mariana Rodríguez V.
+                    </p>
+                    <p class="font-label-sm text-label-sm text-secondary">
+                      Trujillana • 12 reseñas
+                    </p>
+                  </div>
+                </div>
+                <span class="font-label-sm text-label-sm text-on-surface-variant">Hace 3 días</span>
+              </div>
+              <div class="flex text-primary">
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: 'FILL' 1"
+                  >star</span
+                >
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: 'FILL' 1"
+                  >star</span
+                >
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: 'FILL' 1"
+                  >star</span
+                >
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: 'FILL' 1"
+                  >star</span
+                >
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: 'FILL' 1"
+                  >star</span
+                >
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                “El seco de cabrito es insuperable, la carne se deshace con el tenedor y la chicha
+                de jora tiene el punto exacto de acidez. El patio con sus buganvilias le da un
+                encanto único para almorzar en familia.”
+              </p>
+            </div>
+            <!-- Review 2 -->
+            <div
+              class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-2"
+            >
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div
+                    class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-label-md"
+                  >
+                    JG
+                  </div>
+                  <div>
+                    <p class="font-label-md text-label-md font-bold text-on-surface">
+                      Jean-Pierre Gaudin
+                    </p>
+                    <p class="font-label-sm text-label-sm text-secondary">
+                      Viajero verificado • Francia
+                    </p>
+                  </div>
+                </div>
+                <span class="font-label-sm text-label-sm text-on-surface-variant"
+                  >Hace 1 semana</span
+                >
+              </div>
+              <div class="flex text-primary">
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: 'FILL' 1"
+                  >star</span
+                >
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: 'FILL' 1"
+                  >star</span
+                >
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: 'FILL' 1"
+                  >star</span
+                >
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: 'FILL' 1"
+                  >star</span
+                >
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: 'FILL' 1"
+                  >star</span
+                >
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                “Una verdadera joya colonial. Probamos el ceviche y el Shámbar del lunes. La
+                atención fue impecable y cordial. Muy recomendable antes de visitar las huacas.”
+              </p>
+            </div>
+          </div>
+          <!-- Review Submission Trigger Button -->
+          <button
+            class="w-full py-3 px-4 rounded-xl bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-2 active:scale-95 transition-transform"
+            onclick="writeReview()"
+          >
+            <span class="material-symbols-outlined text-[20px] text-primary">rate_review</span>
+            Escribir una reseña sobre este lugar
+          </button>
+        </section>
+        <!-- Similar Places Nearby -->
+        <section class="px-gutter py-space-md flex flex-col gap-space-sm mb-4">
+          <div class="flex items-center justify-between">
+            <h2 class="font-headline-sm text-headline-sm text-on-surface">Lugares Cercanos</h2>
+            <span class="font-label-sm text-label-sm text-secondary">Centro Histórico</span>
+          </div>
+          <div class="grid grid-cols-2 gap-space-xs">
+            <!-- Card 1 -->
+            <div
+              class="rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm flex flex-col"
+            >
+              <div class="relative aspect-[4/3] w-full">
+                <img
+                  class="w-full h-full object-cover"
+                  data-alt="Traditional colonial cafe and coffeehouse in historic Trujillo with high ceilings and wooden tables."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMp2oRTTQwYPoUMS6KnAjgRW7qYz39sPoNIc7EbAejL0624ZiDu_xwwlcp7nP8LXlheO8DkrLomxBoIYIgmXc6lzTsPD0cYJc1IhUIyJOt9X4xxAAaCLByXTdsYXDWSDgBDMUsCyQMXLLtSrnFkWy3kkGDvr4FnDblSREx8Dr4vf6MrJbaWGa57hSfdl-qTz62axuX9nQf3Dvu3j3EX73lcT_3Ij1eIBy66hTjHLHsmkXYvPGqqYjK"
+                />
+                <span
+                  class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 font-label-sm text-label-sm text-on-surface"
+                  >Cafetería</span
+                >
+              </div>
+              <div class="p-3 flex flex-col gap-1 flex-1 justify-between">
+                <div>
+                  <h3 class="font-label-md text-label-md font-bold text-on-surface line-clamp-1">
+                    Café Rincón Colonial
+                  </h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                    Jr. Pizarro 310 • A 220m
+                  </p>
+                </div>
+                <div class="flex items-center justify-between pt-1">
+                  <span class="font-label-sm text-label-sm text-primary font-bold">★ 4.8</span>
+                  <span class="font-label-sm text-label-sm text-secondary">$$</span>
+                </div>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div
+              class="rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm flex flex-col"
+            >
+              <div class="relative aspect-[4/3] w-full">
+                <img
+                  class="w-full h-full object-cover"
+                  data-alt="Warm northern Peruvian bar serving artisanal pisco cocktails and craft beer in historic colonial mansion."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA19SfeHrcgdNRDKBgpx9jMl7dzTQt9GM34E-vJchx1ake2TzS3l1CxXOt9QrtBpiKOUGZEjY-InDRyIh7U_EW4uD5Hn74YwU1dT8AX9cFTCNvxUWXJ-x9f7kgDF3J8f0uV8XmngvZGibfp2_oI_HdmdRk3lP35rMl34mLXUPd1-niwP6PxNO-73qcsmzxOeAxswAotMSTqbVT5pKTIKp5GKrrZLzmTTeQHjATNDM35OXq92_sAnFae"
+                />
+                <span
+                  class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 font-label-sm text-label-sm text-on-surface"
+                  >Taberna</span
+                >
+              </div>
+              <div class="p-3 flex flex-col gap-1 flex-1 justify-between">
+                <div>
+                  <h3 class="font-label-md text-label-md font-bold text-on-surface line-clamp-1">
+                    El Alambique Norteño
+                  </h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                    Jr. Almagro 420 • A 350m
+                  </p>
+                </div>
+                <div class="flex items-center justify-between pt-1">
+                  <span class="font-label-sm text-label-sm text-primary font-bold">★ 4.7</span>
+                  <span class="font-label-sm text-label-sm text-secondary">$$$</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Sticky Bottom Quick Navigation Bar -->
+        <aside
+          class="fixed bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-md shadow-[0_-4px_16px_rgba(0,0,0,0.06)] px-gutter py-3 pb-safe flex items-center gap-space-xs max-w-lg mx-auto"
+        >
+          <button
+            class="flex-1 py-3.5 px-4 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-all"
+            onclick="navigateToPlace()"
+          >
+            <span class="material-symbols-outlined text-[20px]">near_me</span>
+            Cómo llegar
+          </button>
+          <a
+            aria-label="Llamar al restaurante"
+            class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary active:scale-95 transition-all"
+            href="tel:+5144245890"
+          >
+            <span class="material-symbols-outlined text-[22px]">call</span>
+          </a>
+          <button
+            aria-label="Reservar mesa ahora"
+            class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center text-on-secondary-container active:scale-95 transition-all"
+            onclick="bookTable()"
+          >
+            <span class="material-symbols-outlined text-[22px]">calendar_month</span>
+          </button>
+        </aside>
+        <!-- Interactive Feedback Toast (Hidden by default) -->
+        <div
+          class="fixed top-20 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-full bg-inverse-surface text-inverse-on-surface font-label-md text-label-md shadow-lg pointer-events-none opacity-0 transition-opacity duration-300"
+          id="toastNotification"
+        >
+          Lugar guardado en favoritos
+        </div>
+      </div>
+      <script>
+        // Dynamic Photo Carousel Scroll Tracker
+        const carousel = document.getElementById('carouselTrack')
+        const photoBadge = document.getElementById('photoBadge')
+
+        if (carousel && photoBadge) {
+          carousel.addEventListener(
+            'scroll',
+            () => {
+              const slideWidth = carousel.clientWidth
+              const currentSlide = Math.round(carousel.scrollLeft / slideWidth) + 1
+              photoBadge.textContent = currentSlide + ' / 5'
+            },
+            { passive: true }
+          )
+        }
+
+        // Favorite Button Toggle State
+        let isFavorite = true
+        function toggleFavorite() {
+          isFavorite = !isFavorite
+          const favIcon = document.getElementById('favIcon')
+          const toast = document.getElementById('toastNotification')
+
+          if (isFavorite) {
+            favIcon.style.fontVariationSettings = "'FILL' 1"
+            favIcon.classList.add('text-primary')
+            showToast('Guardado en tus favoritos de Trujillo')
+          } else {
+            favIcon.style.fontVariationSettings = "'FILL' 0"
+            favIcon.classList.remove('text-primary')
+            showToast('Eliminado de tus favoritos')
+          }
+        }
+
+        // Schedule Drawer Accordion Toggle
+        function toggleSchedule() {
+          const details = document.getElementById('scheduleDetails')
+          const arrow = document.getElementById('schedArrow')
+          if (details.classList.contains('hidden')) {
+            details.classList.remove('hidden')
+            arrow.style.transform = 'rotate(180deg)'
+          } else {
+            details.classList.add('hidden')
+            arrow.style.transform = 'rotate(0deg)'
+          }
+        }
+
+        // Toast Notifier Helper
+        function showToast(message) {
+          const toast = document.getElementById('toastNotification')
+          if (toast) {
+            toast.textContent = message
+            toast.classList.remove('opacity-0')
+            toast.classList.add('opacity-100')
+            setTimeout(() => {
+              toast.classList.remove('opacity-100')
+              toast.classList.add('opacity-0')
+            }, 2400)
+          }
+        }
+
+        // Action Triggers
+        function navigateToPlace() {
+          const url =
+            'https://www.google.com/maps/dir/?api=1&destination=Jr.+Independencia+465+Trujillo+Peru'
+          window.open(url, '_blank')
+        }
+
+        function openExternalMaps() {
+          navigateToPlace()
+        }
+
+        function bookTable() {
+          showToast('Abriendo sistema de reservas...')
+        }
+
+        function sharePlace() {
+          if (navigator.share) {
+            navigator
+              .share({
+                title: 'Casona & Tradición Mochica',
+                text: '¡Descubre este restaurante emblemático en el Centro Histórico de Trujillo!',
+                url: window.location.href
+              })
+              .catch(() => {})
+          } else {
+            showToast('Enlace copiado al portapapeles')
+          }
+        }
+
+        function writeReview() {
+          showToast('Formulario de reseña en desarrollo')
+        }
+      </script>
+    </main>
+  </body>
+</html>
